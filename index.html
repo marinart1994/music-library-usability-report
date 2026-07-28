@@ -49,6 +49,7 @@
     .top-insight.web { border-left-color: var(--web); }
     .top-insight.compare { border-left-color: var(--good); }
     .top-insight p { font-size: 16px; line-height: 1.65; }
+    .shared-section { margin: 0 0 18px; }
     .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
     .panel { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(37, 48, 70, .06); }
     .panel.app { border-top: 5px solid var(--app); }
@@ -157,6 +158,29 @@
         <h2>비교 결론</h2>
         <p>웹스튜디오는 탐색-재생-추가 흐름이 이미 크고, 앱업로더는 초기 검증 단계입니다. 앱업로더는 진입 확대, 웹스튜디오는 완료 전환 개선이 핵심입니다.</p>
       </article>
+    </section>
+
+    <section class="panel shared-section">
+      <h2>공통 음원 라이브러리 삽입 성과</h2>
+      <div class="grid tab-layout">
+        <div class="metric-stack">
+          <div class="metric-card"><div class="kpi-label">릴리즈 이후 삽입된 영상 수</div><div class="kpi-value">2,290개</div><div class="kpi-note">앱업로더 + 웹스튜디오 합산 기준</div></div>
+          <div class="metric-card"><div class="kpi-label">Top 10 음원 합산</div><div class="kpi-value">1,097회</div><div class="kpi-note">전체 삽입 영상의 47.9%</div></div>
+        </div>
+        <div class="rank-bars">
+          <div class="rank-row"><div><span class="rank-label">토실토실 다람쥐</span><span class="rank-code">음원 ID 28</span></div><div class="track"><span class="web-fill" style="width:100%"></span></div><div class="rank-value">259</div></div>
+          <div class="rank-row"><div><span class="rank-label">두근두근 피크닉</span><span class="rank-code">음원 ID 48</span></div><div class="track"><span class="web-fill" style="width:72.2%"></span></div><div class="rank-value">187</div></div>
+          <div class="rank-row"><div><span class="rank-label">퐁당퐁당 물장구</span><span class="rank-code">음원 ID 5</span></div><div class="track"><span class="web-fill" style="width:45.2%"></span></div><div class="rank-value">117</div></div>
+          <div class="rank-row"><div><span class="rank-label">멍멍 미드나잇</span><span class="rank-code">음원 ID 47</span></div><div class="track"><span class="web-fill" style="width:33.6%"></span></div><div class="rank-value">87</div></div>
+          <div class="rank-row"><div><span class="rank-label">뿜뿜 디스코</span><span class="rank-code">음원 ID 52</span></div><div class="track"><span class="web-fill" style="width:33.6%"></span></div><div class="rank-value">87</div></div>
+          <div class="rank-row"><div><span class="rank-label">걸어서 별까지</span><span class="rank-code">음원 ID 13</span></div><div class="track"><span class="web-fill" style="width:32.8%"></span></div><div class="rank-value">85</div></div>
+          <div class="rank-row"><div><span class="rank-label">텅 빈 하루</span><span class="rank-code">음원 ID 82</span></div><div class="track"><span class="web-fill" style="width:29.7%"></span></div><div class="rank-value">77</div></div>
+          <div class="rank-row"><div><span class="rank-label">묘한 걸</span><span class="rank-code">음원 ID 54</span></div><div class="track"><span class="web-fill" style="width:27.0%"></span></div><div class="rank-value">70</div></div>
+          <div class="rank-row"><div><span class="rank-label">새콤달콤송</span><span class="rank-code">음원 ID 11</span></div><div class="track"><span class="web-fill" style="width:24.7%"></span></div><div class="rank-value">64</div></div>
+          <div class="rank-row"><div><span class="rank-label">통통 무도회</span><span class="rank-code">음원 ID 8</span></div><div class="track"><span class="web-fill" style="width:24.7%"></span></div><div class="rank-value">64</div></div>
+        </div>
+      </div>
+      <p class="note">릴리즈 이후만 필터한 앱/웹 합산 데이터입니다.</p>
     </section>
 
     <section id="tab-app" class="tab-panel active">
@@ -369,26 +393,6 @@
           <div class="rank-row"><div><span class="rank-label">뒤로가기 클릭</span><span class="rank-code">이탈</span></div><div class="track"><span class="web-fill" style="width:1.8%"></span></div><div class="rank-value">166</div></div>
         </div>
         <p class="note">새 웹스튜디오 CSV 기준입니다. 해당 파일은 action_name별 이벤트수만 포함하고 UV는 포함하지 않습니다.</p>
-      </article>
-      <article class="panel web section-gap">
-        <h2>음원 라이브러리 삽입 성과</h2>
-        <div class="metric-stack">
-          <div class="metric-card"><div class="kpi-label">음원라이브러리에서 삽입된 영상 수</div><div class="kpi-value">2,339개</div><div class="kpi-note">짤스튜디오 음원 삽입 기준</div></div>
-        </div>
-        <h3 style="margin-top:18px">가장 많이 삽입된 짤스튜디오 음원 Top 10</h3>
-        <div class="rank-bars">
-          <div class="rank-row"><div><span class="rank-label">토실토실 다람쥐</span><span class="rank-code">음원 ID 28</span></div><div class="track"><span class="web-fill" style="width:100%"></span></div><div class="rank-value">262</div></div>
-          <div class="rank-row"><div><span class="rank-label">두근두근 피크닉</span><span class="rank-code">음원 ID 48</span></div><div class="track"><span class="web-fill" style="width:71.4%"></span></div><div class="rank-value">187</div></div>
-          <div class="rank-row"><div><span class="rank-label">퐁당퐁당 물장구</span><span class="rank-code">음원 ID 5</span></div><div class="track"><span class="web-fill" style="width:45.0%"></span></div><div class="rank-value">118</div></div>
-          <div class="rank-row"><div><span class="rank-label">멍멍 미드나잇</span><span class="rank-code">음원 ID 47</span></div><div class="track"><span class="web-fill" style="width:33.2%"></span></div><div class="rank-value">87</div></div>
-          <div class="rank-row"><div><span class="rank-label">뿜뿜 디스코</span><span class="rank-code">음원 ID 52</span></div><div class="track"><span class="web-fill" style="width:32.8%"></span></div><div class="rank-value">86</div></div>
-          <div class="rank-row"><div><span class="rank-label">걸어서 별까지</span><span class="rank-code">음원 ID 13</span></div><div class="track"><span class="web-fill" style="width:32.4%"></span></div><div class="rank-value">85</div></div>
-          <div class="rank-row"><div><span class="rank-label">텅 빈 하루</span><span class="rank-code">음원 ID 82</span></div><div class="track"><span class="web-fill" style="width:29.4%"></span></div><div class="rank-value">77</div></div>
-          <div class="rank-row"><div><span class="rank-label">묘한 걸</span><span class="rank-code">음원 ID 54</span></div><div class="track"><span class="web-fill" style="width:26.7%"></span></div><div class="rank-value">70</div></div>
-          <div class="rank-row"><div><span class="rank-label">새콤달콤송</span><span class="rank-code">음원 ID 11</span></div><div class="track"><span class="web-fill" style="width:24.4%"></span></div><div class="rank-value">64</div></div>
-          <div class="rank-row"><div><span class="rank-label">통통 무도회</span><span class="rank-code">음원 ID 8</span></div><div class="track"><span class="web-fill" style="width:24.4%"></span></div><div class="rank-value">64</div></div>
-        </div>
-        <p class="note">Top 10 합산 1,100회로 전체 삽입 영상 2,339개 중 47.0%를 차지합니다.</p>
       </article>
     </section>
 
