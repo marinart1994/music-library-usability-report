@@ -4,43 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>음원 라이브러리 사용성 확인</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/spoqa-han-sans@3.3.0/css/SpoqaHanSansNeo.css" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4f6f8;
+      --bg: #f7f8fb;
       --panel: #fff;
-      --ink: #20242b;
-      --muted: #667085;
-      --line: #d9e0e7;
-      --app: #2563eb;
-      --web: #c2410c;
+      --ink: #242936;
+      --muted: #6e7584;
+      --line: #e3e7ee;
+      --app: #4f7cff;
+      --web: #e26a3d;
       --good: #0f766e;
       --warn: #b45309;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --soft: #fbfcff;
+      font-family: "Spoqa Han Sans Neo", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.45; }
-    .wrap { width: min(1360px, calc(100% - 32px)); margin: 0 auto; padding: 26px 0 42px; }
-    header { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 16px; }
-    h1 { margin: 0 0 8px; font-size: clamp(25px, 3vw, 40px); letter-spacing: 0; }
+    body { margin: 0; background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 36%, #f7f8fb 100%); color: var(--ink); line-height: 1.55; }
+    .wrap { width: min(1240px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 48px; }
+    header { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
+    h1 { margin: 0 0 8px; font-size: clamp(25px, 3vw, 38px); letter-spacing: 0; }
     h2 { margin: 0 0 12px; font-size: 20px; }
     h3 { margin: 0 0 8px; font-size: 16px; }
     p { margin: 0; }
     .sub { color: var(--muted); font-size: 14px; }
     .badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
-    .badge { display: inline-flex; border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 8px 12px; color: var(--muted); font-size: 13px; white-space: nowrap; }
-    .grid { display: grid; gap: 14px; }
-    .tabs { display: flex; gap: 8px; border-bottom: 1px solid var(--line); margin: 2px 0 16px; }
-    .tab-button { border: 1px solid var(--line); border-bottom: 0; background: #e9edf2; color: var(--muted); border-radius: 8px 8px 0 0; padding: 11px 18px; font: inherit; font-weight: 800; cursor: pointer; }
-    .tab-button.active { background: var(--panel); color: var(--ink); }
-    .tab-button.app.active { box-shadow: inset 0 4px 0 var(--app); }
-    .tab-button.web.active { box-shadow: inset 0 4px 0 var(--web); }
+    .badge { display: inline-flex; border: 1px solid var(--line); background: rgba(255,255,255,.75); border-radius: 999px; padding: 8px 12px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .grid { display: grid; gap: 16px; }
+    .tabs { display: inline-flex; gap: 6px; border: 1px solid var(--line); background: #eef2f7; border-radius: 999px; padding: 5px; margin: 2px 0 18px; }
+    .tab-button { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 10px 18px; font: inherit; font-weight: 800; cursor: pointer; }
+    .tab-button.active { background: var(--panel); color: var(--ink); box-shadow: 0 2px 8px rgba(37, 48, 70, .08); }
+    .tab-button.app.active { color: #315bdc; }
+    .tab-button.web.active { color: #b94b24; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
-    .quick-link { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); padding: 7px 11px; margin: 0 0 12px; text-decoration: none; font-size: 13px; font-weight: 800; }
-    .quick-link.app { color: #1d4ed8; background: #eff6ff; border-color: #bfdbfe; }
-    .quick-link.web { color: #9a3412; background: #fff7ed; border-color: #fed7aa; }
+    .quick-link { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); padding: 8px 12px; margin: 0 0 14px; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 2px 8px rgba(37, 48, 70, .05); }
+    .quick-link.app { color: #315bdc; background: #f1f5ff; border-color: #d7e1ff; }
+    .quick-link.web { color: #b94b24; background: #fff4ee; border-color: #ffd9c9; }
     .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
-    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+    .panel { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(37, 48, 70, .06); }
     .panel.app { border-top: 5px solid var(--app); }
     .panel.web { border-top: 5px solid var(--web); }
     .summary { margin: 0; padding-left: 22px; }
@@ -48,7 +51,7 @@
     .summary strong { font-weight: 800; }
     .metric-pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
     .metric-stack { display: grid; gap: 10px; }
-    .metric-card { border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: #fbfcfd; }
+    .metric-card { border: 1px solid var(--line); border-radius: 10px; padding: 15px; background: var(--soft); }
     .action-list { margin: 0; padding-left: 20px; }
     .action-list li { margin: 9px 0; }
     .section-gap { margin-bottom: 14px; }
@@ -59,10 +62,10 @@
     .timeline { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .release-row { display: grid; grid-template-columns: 92px 1fr 90px; gap: 12px; align-items: center; }
     .release-label { font-weight: 800; }
-    .track { height: 16px; border-radius: 999px; background: #edf1f5; overflow: hidden; }
+    .track { height: 14px; border-radius: 999px; background: #edf1f5; overflow: hidden; }
     .track span { display: block; height: 100%; border-radius: inherit; }
-    .app-fill { background: linear-gradient(90deg, #60a5fa, var(--app)); }
-    .web-fill { background: linear-gradient(90deg, #fdba74, var(--web)); }
+    .app-fill { background: linear-gradient(90deg, #8fb1ff, var(--app)); }
+    .web-fill { background: linear-gradient(90deg, #ffb690, var(--web)); }
     .release-days { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; }
     .chart { width: 100%; overflow-x: auto; padding-bottom: 4px; }
     svg { min-width: 780px; width: 100%; height: auto; display: block; }
@@ -78,15 +81,16 @@
     .insights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
     .insight-box { border-left: 4px solid var(--line); }
     .insight-box strong { display: block; margin-bottom: 8px; }
-    .feedback { margin-top: 14px; }
+    .feedback { margin-top: 18px; }
     .feedback-head { display: flex; justify-content: space-between; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
     .visitor-badge { display: inline-flex; align-items: center; min-height: 22px; }
     .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+    .comment-helper { color: var(--muted); font-size: 12px; margin-top: 10px; }
     a { color: inherit; }
     .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
     .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; }
-    .pill.app { background: #dbeafe; color: #1d4ed8; }
-    .pill.web { background: #ffedd5; color: #9a3412; }
+    .pill.app { background: #e8efff; color: #315bdc; }
+    .pill.web { background: #fff0e8; color: #b94b24; }
     @media (max-width: 920px) {
       header { display: block; }
       .badges { justify-content: flex-start; margin-top: 12px; }
@@ -264,6 +268,7 @@
         </div>
       </div>
       <div id="HCB_comment_box">댓글 영역을 불러오는 중입니다.</div>
+      <p class="comment-helper">댓글은 외부 댓글 서비스에 저장되어 같은 링크로 들어온 사람들에게 함께 보입니다.</p>
       <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css">
       <script type="text/javascript" id="hcb">
         if (!window.hcb_user) {
