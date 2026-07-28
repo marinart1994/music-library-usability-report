@@ -78,6 +78,10 @@
     .insights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
     .insight-box { border-left: 4px solid var(--line); }
     .insight-box strong { display: block; margin-bottom: 8px; }
+    .feedback { margin-top: 14px; }
+    .feedback-head { display: flex; justify-content: space-between; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    .visitor-badge { display: inline-flex; align-items: center; min-height: 22px; }
+    .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
     a { color: inherit; }
     .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
     .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; }
@@ -247,6 +251,26 @@
         </div>
         <div class="legend"><span class="key"><span class="dot" style="background:var(--web)"></span>웹스튜디오 이벤트수</span></div>
       </article>
+    </section>
+
+    <section class="panel feedback">
+      <div class="feedback-head">
+        <div>
+          <h2>이런 지표를 더 보면 좋을 것 같아요</h2>
+          <p class="comment-note">의견을 남기면 아래 댓글 영역에 함께 보입니다.</p>
+        </div>
+        <div class="visitor-badge" aria-label="누적 방문 수">
+          <img src="https://hits.sh/marinart1994.github.io/music-library-usability-report.svg?label=%EB%88%84%EC%A0%81%20%EB%B0%A9%EB%AC%B8%20%EC%88%98&color=2563eb&labelColor=667085" alt="누적 방문 수">
+        </div>
+      </div>
+      <script src="https://utteranc.es/client.js"
+        repo="marinart1994/music-library-usability-report"
+        issue-term="pathname"
+        label="feedback"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
     </section>
 
   </main>
