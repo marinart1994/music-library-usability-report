@@ -43,6 +43,12 @@
     .quick-link { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); padding: 8px 12px; margin: 0 0 14px; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 2px 8px rgba(37, 48, 70, .05); }
     .quick-link.app { color: #315bdc; background: #f1f5ff; border-color: #d7e1ff; }
     .quick-link.web { color: #b94b24; background: #fff4ee; border-color: #ffd9c9; }
+    .top-insights { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 18px; }
+    .top-insight { border-left: 5px solid var(--line); }
+    .top-insight.app { border-left-color: var(--app); }
+    .top-insight.web { border-left-color: var(--web); }
+    .top-insight.compare { border-left-color: var(--good); }
+    .top-insight p { font-size: 16px; line-height: 1.65; }
     .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
     .panel { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: 0 8px 24px rgba(37, 48, 70, .06); }
     .panel.app { border-top: 5px solid var(--app); }
@@ -109,7 +115,7 @@
     @media (max-width: 920px) {
       header { display: block; }
       .badges { justify-content: flex-start; margin-top: 12px; }
-      .tab-layout, .metric-pairs, .compare, .insights { grid-template-columns: 1fr; }
+      .top-insights, .tab-layout, .metric-pairs, .compare, .insights { grid-template-columns: 1fr; }
       .bar-row { grid-template-columns: 1fr; }
       .bar-value { text-align: left; }
       .rank-row { grid-template-columns: 1fr; }
@@ -137,6 +143,21 @@
       <button class="tab-button app active" type="button" data-tab="app">1. 앱업로더</button>
       <button class="tab-button web" type="button" data-tab="web">2. 웹스튜디오</button>
     </nav>
+
+    <section class="grid top-insights">
+      <article class="panel top-insight app">
+        <h2>앱업로더 인사이트</h2>
+        <p>총량은 작지만 오디오 선택을 한 사용자는 반복 사용이 높습니다. 문제는 음원 선택까지 오는 사용자 폭이 아직 좁다는 점입니다.</p>
+      </article>
+      <article class="panel top-insight web">
+        <h2>웹스튜디오 인사이트</h2>
+        <p>음악을 찾고 재생하는 의도는 매우 강합니다. 다만 추가 클릭 이후 완료까지 약 23.2%가 빠져, 마지막 적용 UX가 우선 개선 지점입니다.</p>
+      </article>
+      <article class="panel top-insight compare">
+        <h2>비교 결론</h2>
+        <p>웹스튜디오는 탐색-재생-추가 흐름이 이미 크고, 앱업로더는 초기 검증 단계입니다. 앱업로더는 진입 확대, 웹스튜디오는 완료 전환 개선이 핵심입니다.</p>
+      </article>
+    </section>
 
     <section id="tab-app" class="tab-panel active">
       <a class="quick-link app" href="https://kko.to/BmHWyjjfxX" target="_blank" rel="noopener noreferrer">티아라 피봇 바로가기</a>
