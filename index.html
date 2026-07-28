@@ -75,17 +75,7 @@
     .insights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
     .insight-box { border-left: 4px solid var(--line); }
     .insight-box strong { display: block; margin-bottom: 8px; }
-    .frames { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .raw-table { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; min-width: 520px; }
-    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; font-size: 14px; }
-    th { background: #f1f4f8; color: #374151; }
-    tr:last-child td { border-bottom: 0; }
-    td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 800; }
-    iframe { width: 100%; height: 520px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
     a { color: inherit; }
-    .link-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-    .open-link { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; text-decoration: none; color: var(--muted); font-size: 13px; }
     .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
     .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; }
     .pill.app { background: #dbeafe; color: #1d4ed8; }
@@ -93,10 +83,9 @@
     @media (max-width: 920px) {
       header { display: block; }
       .badges { justify-content: flex-start; margin-top: 12px; }
-      .tab-layout, .metric-pairs, .compare, .insights, .frames { grid-template-columns: 1fr; }
+      .tab-layout, .metric-pairs, .compare, .insights { grid-template-columns: 1fr; }
       .bar-row { grid-template-columns: 1fr; }
       .bar-value { text-align: left; }
-      iframe { height: 420px; }
     }
   </style>
 </head>
@@ -185,10 +174,6 @@
         </div>
         <div class="legend"><span class="key"><span class="dot" style="background:var(--app)"></span>앱업로더 이벤트수</span></div>
       </article>
-      <article class="panel app">
-        <h2>원본 1. 앱업로더</h2>
-        <div class="metric-card"><div class="kpi-label">공유용 안내</div><div class="kpi-value">요약 데이터 반영 완료</div><div class="kpi-note">개인 PC의 file 링크 원본은 공유 URL에서 열리지 않아, 상단 요약/차트/핵심 데이터로 확인할 수 있게 반영했습니다.</div></div>
-      </article>
     </section>
 
     <section id="tab-web" class="tab-panel">
@@ -256,34 +241,6 @@
           </svg>
         </div>
         <div class="legend"><span class="key"><span class="dot" style="background:var(--web)"></span>웹스튜디오 이벤트수</span></div>
-      </article>
-      <article class="panel web section-gap">
-        <h2>웹스튜디오 원본 데이터</h2>
-        <div class="raw-table">
-          <table>
-            <thead><tr><th>액션</th><th>그룹</th><th class="num">이벤트수</th></tr></thead>
-            <tbody>
-              <tr><td>오디오 재생</td><td>핵심 사용</td><td class="num">9,351</td></tr>
-              <tr><td>카테고리 클릭</td><td>탐색</td><td class="num">2,664</td></tr>
-              <tr><td>오디오 추가</td><td>제작 전환</td><td class="num">1,648</td></tr>
-              <tr><td>오디오 선택</td><td>제작 전환</td><td class="num">1,483</td></tr>
-              <tr><td>동영상 재생</td><td>검수</td><td class="num">1,384</td></tr>
-              <tr><td>오디오 추가 완료</td><td>제작 전환</td><td class="num">1,266</td></tr>
-              <tr><td>동영상 음량 조절</td><td>편집</td><td class="num">1,024</td></tr>
-              <tr><td>오디오 음량 조절</td><td>편집</td><td class="num">1,007</td></tr>
-              <tr><td>30% 이하 토스트</td><td>품질 신호</td><td class="num">620</td></tr>
-              <tr><td>타임라인 이동</td><td>검수</td><td class="num">609</td></tr>
-              <tr><td>나가기</td><td>이탈</td><td class="num">416</td></tr>
-              <tr><td>뒤로가기</td><td>이탈</td><td class="num">166</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="note">웹스튜디오 원본 페이지의 소스에 포함된 액션별 이벤트 데이터입니다.</p>
-      </article>
-      <article class="panel web">
-        <h2>원본 2. 웹스튜디오 페이지</h2>
-        <div class="metric-card"><div class="kpi-label">공유용 안내</div><div class="kpi-value">원본 표 제공</div><div class="kpi-note">localhost:3000 원본 페이지는 서버가 켜진 개인 환경에서만 열립니다. 공유 링크에서는 위의 웹스튜디오 원본 데이터 표를 기준으로 확인하세요.</div></div>
-        <p class="note">이 iframe은 로컬 서버가 켜져 있을 때만 표시됩니다. 서버가 꺼져 있으면 위의 원본 데이터 표를 기준으로 확인하면 됩니다.</p>
       </article>
     </section>
 
