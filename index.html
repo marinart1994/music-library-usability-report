@@ -36,6 +36,9 @@
     .tab-button.web.active { box-shadow: inset 0 4px 0 var(--web); }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
+    .quick-link { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); padding: 7px 11px; margin: 0 0 12px; text-decoration: none; font-size: 13px; font-weight: 800; }
+    .quick-link.app { color: #1d4ed8; background: #eff6ff; border-color: #bfdbfe; }
+    .quick-link.web { color: #9a3412; background: #fff7ed; border-color: #fed7aa; }
     .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
     .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
     .panel.app { border-top: 5px solid var(--app); }
@@ -109,6 +112,7 @@
     </nav>
 
     <section id="tab-app" class="tab-panel active">
+      <a class="quick-link app" href="https://kko.to/BmHWyjjfxX" target="_blank" rel="noopener noreferrer">앱업로더 바로가기</a>
       <div class="grid tab-layout">
         <article class="panel app">
           <h2><span class="pill app">1. 앱업로더</span> 5줄 요약</h2>
@@ -177,6 +181,7 @@
     </section>
 
     <section id="tab-web" class="tab-panel">
+      <a class="quick-link web" href="https://kko.to/JOsWWFCvLo" target="_blank" rel="noopener noreferrer">웹스튜디오 바로가기</a>
       <div class="grid tab-layout">
         <article class="panel web">
           <h2><span class="pill web">2. 웹스튜디오</span> 5줄 요약</h2>
