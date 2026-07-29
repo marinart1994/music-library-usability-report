@@ -120,7 +120,6 @@
     .insights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
     .insight-box { border-left: 4px solid var(--line); }
     .insight-box strong { display: block; margin-bottom: 8px; }
-    .feedback { margin-top: 18px; }
     .click-map-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
     .period-chip { display: inline-flex; align-items: center; border: 1px solid #d7e1ff; border-radius: 999px; background: #f1f5ff; color: #315bdc; padding: 5px 9px; font-size: 12px; font-weight: 800; white-space: nowrap; }
     .screen-map { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
@@ -130,10 +129,7 @@
     .hotspot::before { content: ""; position: absolute; left: 50%; bottom: calc(100% + 2px); transform: translateX(-50%); border: 6px solid transparent; border-top-color: #242936; opacity: 0; transition: opacity .15s ease; z-index: 3; }
     .hotspot:hover::after, .hotspot:focus-visible::after, .hotspot:hover::before, .hotspot:focus-visible::before { opacity: 1; }
     .hotspot:hover::after, .hotspot:focus-visible::after { transform: translateX(-50%) translateY(-2px); }
-    .feedback-head { display: flex; justify-content: space-between; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
-    .visitor-badge { display: inline-flex; align-items: center; min-height: 22px; }
     .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
-    .comment-helper { color: var(--muted); font-size: 12px; margin-top: 10px; }
     a { color: inherit; }
     .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
     .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; }
@@ -345,6 +341,37 @@
         </div>
         <p class="note">상위 10개 코드 합산 이벤트수 1,240건, 전체의 87.0%입니다.</p>
       </article>
+      <article class="panel app section-gap">
+        <div class="click-map-head">
+          <div>
+            <h2>참고: 앱업로더 화면별 클릭 평균</h2>
+            <p class="comment-note">화면 위 보라색 번호에 마우스를 올리면 일주일간 하루 평균 클릭 수가 보입니다.</p>
+          </div>
+          <span class="period-chip">2026-07-21~2026-07-27</span>
+        </div>
+        <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
+          <img src="assets/app-editor-click-map.png" alt="앱업로더 동영상 편집기 액션 번호 참고 화면">
+          <button class="hotspot" style="--x:2.6%;--y:23.5%" data-tip="뒤로가기 · 일평균 8.4회 · 총 59회">1</button>
+          <button class="hotspot" style="--x:15.0%;--y:23.5%" data-tip="확인 · 일평균 58.0회 · 총 406회">2</button>
+          <button class="hotspot" style="--x:7.6%;--y:27.3%" data-tip="오디오 추가 · 일평균 3.7회 · 총 26회">3</button>
+          <button class="hotspot" style="--x:15.7%;--y:31.5%" data-tip="오디오 추가 삭제 · 일평균 0.0회 · 총 0회">4</button>
+          <button class="hotspot" style="--x:8.9%;--y:45.0%" data-tip="미리보기 재생 버튼 · 일평균 0.4회 · 총 3회">5</button>
+          <button class="hotspot" style="--x:7.7%;--y:69.0%" data-tip="동영상 편집 버튼 · 일평균 0.1회 · 총 1회">6</button>
+          <button class="hotspot" style="--x:28.6%;--y:26.6%" data-tip="확장 버튼 · 일평균 0.3회 · 총 2회">7</button>
+          <button class="hotspot" style="--x:31.1%;--y:53.9%" data-tip="UNDO · 일평균 0.1회 · 총 1회">8</button>
+          <button class="hotspot" style="--x:33.4%;--y:53.9%" data-tip="REDO · 일평균 0.1회 · 총 1회">9</button>
+          <button class="hotspot" style="--x:25.3%;--y:55.7%" data-tip="타임라인 재생 버튼 · 일평균 12.0회 · 총 84회">10</button>
+          <button class="hotspot" style="--x:25.6%;--y:61.6%" data-tip="타임라인 선택 · 일평균 39.0회 · 총 273회">11</button>
+          <button class="hotspot" style="--x:25.7%;--y:65.1%" data-tip="오디오 트랙 선택 · 일평균 9.6회 · 총 67회">12</button>
+          <button class="hotspot" style="--x:21.8%;--y:69.0%" data-tip="동영상 필터 · 일평균 6.3회 · 총 44회">13</button>
+          <button class="hotspot" style="--x:25.3%;--y:69.0%" data-tip="동영상 좌우반전 · 일평균 1.9회 · 총 13회">14</button>
+          <button class="hotspot" style="--x:28.7%;--y:69.0%" data-tip="동영상 볼륨조절 · 일평균 5.1회 · 총 36회">15</button>
+          <button class="hotspot" style="--x:36.1%;--y:66.7%" data-tip="동영상 볼륨조절 닫기 · 일평균 1.9회 · 총 13회">16</button>
+          <button class="hotspot" style="--x:42.3%;--y:66.7%" data-tip="동영상 음소거 · 일평균 0.4회 · 총 3회">17</button>
+          <button class="hotspot" style="--x:48.6%;--y:66.7%" data-tip="동영상 볼륨조절 적용 · 일평균 1.0회 · 총 7회">18</button>
+        </div>
+        <p class="note">앱업로더 최신 CSV에 있는 7일 기준입니다. 2026-07-28 앱업로더 원천 행이 추가되면 기간을 7/21~7/28로 다시 맞출 수 있습니다.</p>
+      </article>
     </section>
 
     <section id="tab-web" class="tab-panel">
@@ -435,66 +462,6 @@
         </div>
         <p class="note">새 웹스튜디오 CSV 기준입니다. 해당 파일은 action_name별 이벤트수만 포함하고 UV는 포함하지 않습니다.</p>
       </article>
-    </section>
-
-    <section class="panel section-gap">
-      <div class="click-map-head">
-        <div>
-          <h2>참고: 앱업로더 화면별 클릭 평균</h2>
-          <p class="comment-note">화면 위 보라색 번호에 마우스를 올리면 일주일간 하루 평균 클릭 수가 보입니다.</p>
-        </div>
-        <span class="period-chip">2026-07-21~2026-07-27</span>
-      </div>
-      <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
-        <img src="assets/app-editor-click-map.png" alt="앱업로더 동영상 편집기 액션 번호 참고 화면">
-        <button class="hotspot" style="--x:2.6%;--y:23.5%" data-tip="뒤로가기 · 일평균 8.4회 · 총 59회">1</button>
-        <button class="hotspot" style="--x:15.0%;--y:23.5%" data-tip="확인 · 일평균 58.0회 · 총 406회">2</button>
-        <button class="hotspot" style="--x:7.6%;--y:27.3%" data-tip="오디오 추가 · 일평균 3.7회 · 총 26회">3</button>
-        <button class="hotspot" style="--x:15.7%;--y:31.5%" data-tip="오디오 추가 삭제 · 일평균 0.0회 · 총 0회">4</button>
-        <button class="hotspot" style="--x:8.9%;--y:45.0%" data-tip="미리보기 재생 버튼 · 일평균 0.4회 · 총 3회">5</button>
-        <button class="hotspot" style="--x:7.7%;--y:69.0%" data-tip="동영상 편집 버튼 · 일평균 0.1회 · 총 1회">6</button>
-        <button class="hotspot" style="--x:28.6%;--y:26.6%" data-tip="확장 버튼 · 일평균 0.3회 · 총 2회">7</button>
-        <button class="hotspot" style="--x:31.1%;--y:53.9%" data-tip="UNDO · 일평균 0.1회 · 총 1회">8</button>
-        <button class="hotspot" style="--x:33.4%;--y:53.9%" data-tip="REDO · 일평균 0.1회 · 총 1회">9</button>
-        <button class="hotspot" style="--x:25.3%;--y:55.7%" data-tip="타임라인 재생 버튼 · 일평균 12.0회 · 총 84회">10</button>
-        <button class="hotspot" style="--x:25.6%;--y:61.6%" data-tip="타임라인 선택 · 일평균 39.0회 · 총 273회">11</button>
-        <button class="hotspot" style="--x:25.7%;--y:65.1%" data-tip="오디오 트랙 선택 · 일평균 9.6회 · 총 67회">12</button>
-        <button class="hotspot" style="--x:21.8%;--y:69.0%" data-tip="동영상 필터 · 일평균 6.3회 · 총 44회">13</button>
-        <button class="hotspot" style="--x:25.3%;--y:69.0%" data-tip="동영상 좌우반전 · 일평균 1.9회 · 총 13회">14</button>
-        <button class="hotspot" style="--x:28.7%;--y:69.0%" data-tip="동영상 볼륨조절 · 일평균 5.1회 · 총 36회">15</button>
-        <button class="hotspot" style="--x:36.1%;--y:66.7%" data-tip="동영상 볼륨조절 닫기 · 일평균 1.9회 · 총 13회">16</button>
-        <button class="hotspot" style="--x:42.3%;--y:66.7%" data-tip="동영상 음소거 · 일평균 0.4회 · 총 3회">17</button>
-        <button class="hotspot" style="--x:48.6%;--y:66.7%" data-tip="동영상 볼륨조절 적용 · 일평균 1.0회 · 총 7회">18</button>
-      </div>
-      <p class="note">앱업로더 최신 CSV에 있는 7일 기준입니다. 2026-07-28 앱업로더 원천 행이 추가되면 기간을 7/21~7/28로 다시 맞출 수 있습니다.</p>
-    </section>
-
-    <section class="panel feedback">
-      <div class="feedback-head">
-        <div>
-          <h2>이런 지표를 더 보면 좋을 것 같아요</h2>
-          <p class="comment-note">가볍게 의견을 남기면 아래 댓글 영역에 함께 보입니다.</p>
-        </div>
-        <div class="visitor-badge" aria-label="누적 방문 수">
-          <img src="https://hits.sh/marinart1994.github.io/music-library-usability-report.svg?label=%EB%88%84%EC%A0%81%20%EB%B0%A9%EB%AC%B8%20%EC%88%98&color=2563eb&labelColor=667085" alt="누적 방문 수">
-        </div>
-      </div>
-      <div id="HCB_comment_box">댓글 영역을 불러오는 중입니다.</div>
-      <p class="comment-helper">댓글은 외부 댓글 서비스에 저장되어 같은 링크로 들어온 사람들에게 함께 보입니다.</p>
-      <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/default/skin.css">
-      <script type="text/javascript" id="hcb">
-        if (!window.hcb_user) {
-          hcb_user = {};
-        }
-        hcb_user.PAGE = "https://marinart1994.github.io/music-library-usability-report/index.html";
-        (function () {
-          const script = document.createElement("script");
-          const page = hcb_user.PAGE || String(window.location).replace(/'/g, "%27");
-          script.type = "text/javascript";
-          script.src = "https://www.htmlcommentbox.com/jread?page=" + encodeURIComponent(page).replace("+", "%2B") + "&opts=16798&num=10&ts=" + new Date().getTime();
-          document.head.appendChild(script);
-        })();
-      </script>
     </section>
 
   </main>
