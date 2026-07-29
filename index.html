@@ -123,19 +123,13 @@
     .click-map-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
     .period-chip { display: inline-flex; align-items: center; border: 1px solid #d7e1ff; border-radius: 999px; background: #f1f5ff; color: #315bdc; padding: 5px 9px; font-size: 12px; font-weight: 800; white-space: nowrap; }
     .click-map-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(220px, .72fr); gap: 14px; align-items: stretch; }
-    .screen-map { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .screen-map { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
     .screen-map img { display: block; width: 100%; height: auto; }
-    .map-status { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.26); border-radius: 999px; background: rgba(36,41,54,.78); color: #fff; padding: 6px 11px; font-size: 12px; font-weight: 800; backdrop-filter: blur(8px); box-shadow: 0 8px 18px rgba(0,0,0,.18); pointer-events: none; }
-    .map-metrics { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.94); padding: 6px; box-shadow: 0 10px 22px rgba(37,48,70,.12); pointer-events: none; }
-    .map-metric { min-width: 88px; text-align: center; color: var(--muted); font-size: 11px; }
-    .map-metric strong { display: block; color: var(--ink); font-size: 16px; line-height: 1.15; }
-    .hotspot { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); width: 36px; height: 36px; border: 0; border-radius: 999px; background: transparent; padding: 0; font-size: 0; color: transparent; cursor: help; z-index: 2; }
-    .hotspot:hover, .hotspot:focus-visible { outline: 0; }
     .action-map-list { display: grid; gap: 6px; align-content: start; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); padding: 12px; }
-    .action-map-item { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: center; min-height: 30px; font-size: 12px; color: #3f4654; }
+    .action-map-item { display: grid; grid-template-columns: 24px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 32px; font-size: 12px; color: #3f4654; }
     .action-map-item b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #f1e6ff; color: #7900d9; font-size: 11px; }
-    .action-map-item.active { color: var(--ink); font-weight: 900; }
-    .action-map-item.active b { background: #8f00ff; color: #fff; }
+    .action-map-item strong { color: var(--ink); font-size: 12px; white-space: nowrap; }
+    .action-map-item em { color: var(--muted); font-style: normal; font-size: 11px; margin-left: 4px; }
     .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
     a { color: inherit; }
     .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
@@ -155,8 +149,6 @@
       .flow-row, .reason-grid, .click-map-layout { grid-template-columns: 1fr; }
       .flow-stat { text-align: left; }
       .click-map-head { align-items: flex-start; flex-direction: column; }
-      .map-status { position: static; transform: none; display: inline-flex; margin: 10px; }
-      .map-metrics { position: static; transform: none; margin: 0 10px 10px; justify-content: center; }
     }
   </style>
 </head>
@@ -352,58 +344,33 @@
         <div class="click-map-head">
           <div>
             <h2>참고: 앱업로더 화면별 클릭 평균</h2>
-            <p class="comment-note">화면 위 보라색 점에 마우스를 올리면 행동명과 클릭 평균이 보입니다.</p>
+            <p class="comment-note">화면 번호와 오른쪽 목록을 매칭해서 일평균과 총합을 확인합니다.</p>
           </div>
           <span class="period-chip">2026-07-22~2026-07-28</span>
         </div>
         <div class="click-map-layout">
           <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
             <img src="assets/app-editor-click-map.png?v=20260729-2" alt="앱업로더 동영상 편집기 화면">
-            <div class="map-status" id="map-status">보라색 점에 호버해보세요</div>
-            <div class="map-metrics" aria-live="polite">
-              <div class="map-metric">일평균<strong id="map-avg">-</strong></div>
-              <div class="map-metric">총 합산<strong id="map-total">-</strong></div>
-            </div>
-            <button class="hotspot" style="--x:4.4%;--y:15.2%" data-key="1" data-name="뒤로가기" data-avg="9.7회" data-total="68회" aria-label="뒤로가기"></button>
-            <button class="hotspot" style="--x:28.6%;--y:15.2%" data-key="2" data-name="확인" data-avg="68.7회" data-total="481회" aria-label="확인"></button>
-            <button class="hotspot" style="--x:14.2%;--y:21.0%" data-key="3" data-name="오디오 추가" data-avg="4.7회" data-total="33회" aria-label="오디오 추가"></button>
-            <button class="hotspot" style="--x:14.2%;--y:27.8%" data-key="3" data-name="오디오 추가" data-avg="4.7회" data-total="33회" aria-label="오디오 추가"></button>
-            <button class="hotspot" style="--x:30.1%;--y:24.4%" data-key="4" data-name="오디오 추가 삭제" data-avg="0.0회" data-total="0회" aria-label="오디오 추가 삭제"></button>
-            <button class="hotspot" style="--x:31.2%;--y:28.0%" data-key="4" data-name="오디오 추가 삭제" data-avg="0.0회" data-total="0회" aria-label="오디오 추가 삭제"></button>
-            <button class="hotspot" style="--x:16.5%;--y:48.2%;width:46px;height:46px" data-key="5" data-name="미리보기 재생 버튼" data-avg="0.4회" data-total="3회" aria-label="미리보기 재생 버튼"></button>
-            <button class="hotspot" style="--x:14.5%;--y:88.4%;width:46px;height:46px" data-key="6" data-name="동영상 편집 버튼" data-avg="0.1회" data-total="1회" aria-label="동영상 편집 버튼"></button>
-            <button class="hotspot" style="--x:56.2%;--y:20.3%" data-key="7" data-name="확장 버튼" data-avg="0.3회" data-total="2회" aria-label="확장 버튼"></button>
-            <button class="hotspot" style="--x:61.0%;--y:62.2%;width:44px;height:44px" data-key="8" data-name="UNDO" data-avg="0.1회" data-total="1회" aria-label="UNDO"></button>
-            <button class="hotspot" style="--x:65.3%;--y:62.2%;width:44px;height:44px" data-key="9" data-name="REDO" data-avg="0.1회" data-total="1회" aria-label="REDO"></button>
-            <button class="hotspot" style="--x:49.2%;--y:66.8%;width:46px;height:46px;z-index:7" data-key="10" data-name="타임라인 재생 버튼" data-avg="14.4회" data-total="101회" aria-label="타임라인 재생 버튼"></button>
-            <button class="hotspot" style="--x:54.2%;--y:75.2%;width:166px;height:34px;border-radius:8px;z-index:6" data-key="11" data-name="타임라인 선택" data-avg="48.6회" data-total="340회" aria-label="타임라인 선택"></button>
-            <button class="hotspot" style="--x:50.7%;--y:82.0%;width:48px;height:48px;z-index:7" data-key="12" data-name="오디오 트랙 선택" data-avg="12.3회" data-total="86회" aria-label="오디오 트랙 선택"></button>
-            <button class="hotspot" style="--x:42.3%;--y:88.5%" data-key="13" data-name="동영상 필터" data-avg="4.4회" data-total="31회" aria-label="동영상 필터"></button>
-            <button class="hotspot" style="--x:49.2%;--y:88.6%" data-key="14" data-name="동영상 좌우반전" data-avg="2.6회" data-total="18회" aria-label="동영상 좌우반전"></button>
-            <button class="hotspot" style="--x:56.0%;--y:88.6%" data-key="15" data-name="동영상 볼륨조절" data-avg="5.1회" data-total="36회" aria-label="동영상 볼륨조절"></button>
-            <button class="hotspot" style="--x:70.5%;--y:85.0%" data-key="16" data-name="동영상 볼륨조절 닫기" data-avg="1.9회" data-total="13회" aria-label="동영상 볼륨조절 닫기"></button>
-            <button class="hotspot" style="--x:83.5%;--y:85.0%" data-key="17" data-name="동영상 음소거" data-avg="0.7회" data-total="5회" aria-label="동영상 음소거"></button>
-            <button class="hotspot" style="--x:95.7%;--y:85.0%" data-key="18" data-name="동영상 볼륨조절 적용" data-avg="1.1회" data-total="8회" aria-label="동영상 볼륨조절 적용"></button>
           </div>
           <div class="action-map-list" aria-label="번호별 사용자 행동명">
-            <div class="action-map-item" data-key="1"><b>1</b><span>뒤로가기</span></div>
-            <div class="action-map-item" data-key="2"><b>2</b><span>확인</span></div>
-            <div class="action-map-item" data-key="3"><b>3</b><span>오디오 추가</span></div>
-            <div class="action-map-item" data-key="4"><b>4</b><span>오디오 추가 삭제</span></div>
-            <div class="action-map-item" data-key="5"><b>5</b><span>미리보기 재생 버튼</span></div>
-            <div class="action-map-item" data-key="6"><b>6</b><span>동영상 편집 버튼</span></div>
-            <div class="action-map-item" data-key="7"><b>7</b><span>확장 버튼</span></div>
-            <div class="action-map-item" data-key="8"><b>8</b><span>UNDO</span></div>
-            <div class="action-map-item" data-key="9"><b>9</b><span>REDO</span></div>
-            <div class="action-map-item" data-key="10"><b>10</b><span>타임라인 재생 버튼</span></div>
-            <div class="action-map-item" data-key="11"><b>11</b><span>타임라인 선택</span></div>
-            <div class="action-map-item" data-key="12"><b>12</b><span>오디오 트랙 선택</span></div>
-            <div class="action-map-item" data-key="13"><b>13</b><span>동영상 필터</span></div>
-            <div class="action-map-item" data-key="14"><b>14</b><span>동영상 좌우반전</span></div>
-            <div class="action-map-item" data-key="15"><b>15</b><span>동영상 볼륨조절</span></div>
-            <div class="action-map-item" data-key="16"><b>16</b><span>동영상 볼륨조절 닫기</span></div>
-            <div class="action-map-item" data-key="17"><b>17</b><span>동영상 음소거</span></div>
-            <div class="action-map-item" data-key="18"><b>18</b><span>동영상 볼륨조절 적용</span></div>
+            <div class="action-map-item"><b>1</b><span>뒤로가기</span><strong>9.7회<em>/68회</em></strong></div>
+            <div class="action-map-item"><b>2</b><span>확인</span><strong>68.7회<em>/481회</em></strong></div>
+            <div class="action-map-item"><b>3</b><span>오디오 추가</span><strong>4.7회<em>/33회</em></strong></div>
+            <div class="action-map-item"><b>4</b><span>오디오 추가 삭제</span><strong>0.0회<em>/0회</em></strong></div>
+            <div class="action-map-item"><b>5</b><span>미리보기 재생 버튼</span><strong>0.4회<em>/3회</em></strong></div>
+            <div class="action-map-item"><b>6</b><span>동영상 편집 버튼</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>7</b><span>확장 버튼</span><strong>0.3회<em>/2회</em></strong></div>
+            <div class="action-map-item"><b>8</b><span>UNDO</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>9</b><span>REDO</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>10</b><span>타임라인 재생 버튼</span><strong>14.4회<em>/101회</em></strong></div>
+            <div class="action-map-item"><b>11</b><span>타임라인 선택</span><strong>48.6회<em>/340회</em></strong></div>
+            <div class="action-map-item"><b>12</b><span>오디오 트랙 선택</span><strong>12.3회<em>/86회</em></strong></div>
+            <div class="action-map-item"><b>13</b><span>동영상 필터</span><strong>4.4회<em>/31회</em></strong></div>
+            <div class="action-map-item"><b>14</b><span>동영상 좌우반전</span><strong>2.6회<em>/18회</em></strong></div>
+            <div class="action-map-item"><b>15</b><span>동영상 볼륨조절</span><strong>5.1회<em>/36회</em></strong></div>
+            <div class="action-map-item"><b>16</b><span>동영상 볼륨조절 닫기</span><strong>1.9회<em>/13회</em></strong></div>
+            <div class="action-map-item"><b>17</b><span>동영상 음소거</span><strong>0.7회<em>/5회</em></strong></div>
+            <div class="action-map-item"><b>18</b><span>동영상 볼륨조절 적용</span><strong>1.1회<em>/8회</em></strong></div>
           </div>
         </div>
         <p class="note">앱업로더 최신 CSV에 있는 7일 기준입니다. 번호와 사용자 행동명은 우측 표의 key/action_code 매핑 기준으로 연결했습니다.</p>
@@ -520,23 +487,6 @@
         button.classList.add("active");
         document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
       });
-    });
-    const mapStatus = document.querySelector("#map-status");
-    const mapAvg = document.querySelector("#map-avg");
-    const mapTotal = document.querySelector("#map-total");
-    const mapItems = document.querySelectorAll(".action-map-item");
-    const setMapMetric = (target) => {
-      if (!mapStatus || !mapAvg || !mapTotal) return;
-      mapStatus.textContent = target ? target.dataset.name : "보라색 점에 호버해보세요";
-      mapAvg.textContent = target ? target.dataset.avg : "-";
-      mapTotal.textContent = target ? target.dataset.total : "-";
-      mapItems.forEach((item) => item.classList.toggle("active", target && item.dataset.key === target.dataset.key));
-    };
-    document.querySelectorAll(".hotspot").forEach((spot) => {
-      spot.addEventListener("mouseenter", () => setMapMetric(spot));
-      spot.addEventListener("focus", () => setMapMetric(spot));
-      spot.addEventListener("mouseleave", () => setMapMetric(null));
-      spot.addEventListener("blur", () => setMapMetric(null));
     });
   </script>
 </body>
