@@ -1,114 +1,525 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Music Library Usability Report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>음원 라이브러리 사용성 확인</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/spoqa-han-sans@3.3.0/css/SpoqaHanSansNeo.css" rel="stylesheet">
   <style>
-    :root{--bg:#f6f3ea;--ink:#17201f;--muted:#65726d;--line:#d5cfbf;--green:#163f3c;--teal:#2d746f;--gold:#d18a28;--orange:#c45b39}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-    .hero{background:var(--green);color:white}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}.hero .wrap{padding-top:34px;padding-bottom:34px}
-    .eyebrow{margin:0;color:#f0bf64;font-size:14px;font-weight:900}.hero-grid{display:grid;grid-template-columns:1fr .72fr;gap:28px;margin-top:14px}
-    h1{margin:0;font-size:48px;line-height:1.08;font-weight:1000;letter-spacing:0}.lead{max-width:760px;margin:18px 0 0;color:#edf5ef;font-size:18px;line-height:1.75}
-    .summary{border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.1);padding:20px}.summary h2{margin:0;color:#f0bf64;font-size:16px}.summary p{margin:12px 0 0;color:#f7fbf8;font-size:14px;line-height:1.7}
-    .tabs{display:inline-grid;grid-template-columns:repeat(2,minmax(132px,1fr));gap:4px;margin:24px 0 18px;border:1px solid var(--line);border-radius:8px;background:#ebe5d6;padding:4px}
-    .tabs button{min-height:44px;border:0;border-radius:6px;background:transparent;color:#40514d;cursor:pointer;font:inherit;font-weight:1000}.tabs button.active{background:white;color:var(--green);box-shadow:0 1px 6px rgba(40,45,38,.12)}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card,.panel{border:1px solid var(--line);border-radius:8px;background:white;box-shadow:0 1px 12px rgba(40,45,38,.07)}
-    .card{padding:20px}.card p,.card span{margin:0;color:var(--muted);font-size:13px;font-weight:850}.card strong{display:block;margin-top:8px;font-size:30px;line-height:1.1;font-weight:1000}.card span{display:block;margin-top:8px;font-weight:750}
-    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}.grid.bottom{grid-template-columns:.95fr 1.05fr;margin-bottom:42px}.panel{padding:20px}.panel h2{margin:0;font-size:21px;font-weight:1000}.panel .sub{margin:5px 0 18px;color:#68736f;font-size:14px;font-weight:750}
-    .scroll{overflow-x:auto;padding-top:24px}.chart{display:grid;align-items:end;gap:7px;height:280px;min-width:920px}.bar-wrap{display:grid;grid-template-rows:1fr auto;gap:9px;height:100%}.bar{position:relative;align-self:end;min-height:5px;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#e5a948,var(--orange))}.bar span{position:absolute;top:-22px;left:50%;transform:translateX(-50%);color:#56625e;font-size:10px;font-weight:900;white-space:nowrap}.bar-wrap small{color:#69736f;font-size:10px;font-weight:900;text-align:center;writing-mode:vertical-rl;transform:rotate(180deg)}
-    .insight{border-left:5px solid var(--teal);border-radius:6px;background:#eef5f1;padding:16px}.insight+.insight{margin-top:14px}.insight.amber{border-left-color:var(--gold);background:#fff6e3}.insight strong{display:block;color:var(--green);font-size:15px;font-weight:1000}.insight p{margin:8px 0 0;color:#41504d;font-size:14px;line-height:1.7}
-    .comparison{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.comparison div{border-radius:7px;background:#f8f6ef;padding:16px}.comparison span,.comparison p{color:var(--muted);font-size:13px;font-weight:800}.comparison strong{display:block;margin-top:8px;font-size:30px;font-weight:1000}.comparison p{margin:7px 0 0;line-height:1.5}.note{margin:18px 0 0;color:#58645f;font-size:14px;line-height:1.7}
-    .stack{display:grid;gap:12px}.stack-row{display:grid;grid-template-columns:58px 1fr 118px;align-items:center;gap:12px}.stack-row b,.stack-row span{color:#485652;font-size:12px;font-weight:900}.track{display:flex;height:13px;overflow:hidden;border-radius:999px;background:#e7dfcf}.track i.web{background:var(--teal)}.track i.app{background:var(--gold)}
-    @media(max-width:860px){.hero-grid,.grid,.grid.bottom,.metrics{grid-template-columns:1fr}h1{font-size:38px}.tabs{width:100%}.chart{min-width:760px}.comparison{grid-template-columns:1fr}.stack-row{grid-template-columns:1fr;gap:6px}}
+    :root {
+      --bg: #f7f8fb;
+      --panel: #fff;
+      --ink: #242936;
+      --muted: #6e7584;
+      --line: #e3e7ee;
+      --app: #4f7cff;
+      --web: #e26a3d;
+      --uv: #19a69a;
+      --good: #0f766e;
+      --warn: #b45309;
+      --soft: #fbfcff;
+      font-family: "Spoqa Han Sans Neo", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: linear-gradient(180deg, #f9fbff 0%, var(--bg) 36%, #f7f8fb 100%); color: var(--ink); line-height: 1.55; }
+    .wrap { width: min(1240px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 48px; }
+    header { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
+    h1 { margin: 0 0 8px; font-size: clamp(25px, 3vw, 38px); letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    p { margin: 0; }
+    .sub { color: var(--muted); font-size: 14px; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .badge { display: inline-flex; border: 1px solid var(--line); background: rgba(255,255,255,.75); border-radius: 999px; padding: 8px 12px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .grid { display: grid; gap: 16px; }
+    .tabs { display: inline-flex; gap: 6px; border: 1px solid var(--line); background: #eef2f7; border-radius: 999px; padding: 5px; margin: 2px 0 18px; }
+    .tab-button { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 10px 18px; font: inherit; font-weight: 800; cursor: pointer; }
+    .tab-button.active { background: var(--panel); color: var(--ink); box-shadow: 0 2px 8px rgba(37, 48, 70, .08); }
+    .tab-button.app.active { color: #315bdc; }
+    .tab-button.web.active { color: #b94b24; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .quick-link { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); padding: 8px 12px; margin: 0 0 14px; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 2px 8px rgba(37, 48, 70, .05); }
+    .quick-link.app { color: #315bdc; background: #f1f5ff; border-color: #d7e1ff; }
+    .quick-link.web { color: #b94b24; background: #fff4ee; border-color: #ffd9c9; }
+    .top-insights { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 12px; gap: 10px; }
+    .top-insight { border-left: 5px solid var(--line); }
+    .top-insight.app { border-left-color: var(--app); }
+    .top-insight.web { border-left-color: var(--web); }
+    .top-insight.compare { border-left-color: var(--good); }
+    .top-insight h2 { font-size: 16px; margin-bottom: 6px; }
+    .top-insight p { font-size: 13px; line-height: 1.5; color: #3f4654; }
+    .shared-section { margin: 0 0 14px; }
+    .shared-section h2 { font-size: 17px; margin-bottom: 10px; }
+    .shared-compact { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .music-channel-tabs { display: inline-flex; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: #eef2f7; padding: 4px; margin: 0 0 10px; }
+    .music-channel-tabs button { border: 0; background: transparent; border-radius: 999px; padding: 7px 12px; color: var(--muted); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .music-channel-tabs button.active { background: #fff; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
+    .music-channel-tabs button[data-music-channel="web"].active { color: #b94b24; }
+    .music-channel-tabs button[data-music-channel="app"].active { color: #315bdc; }
+    .music-channel-panel { display: none; }
+    .music-channel-panel.active { display: block; }
+    .shared-kpis { display: flex; gap: 8px; flex-wrap: wrap; }
+    .mini-kpi { display: inline-flex; align-items: baseline; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); padding: 7px 10px; font-size: 12px; color: var(--muted); }
+    .mini-kpi strong { color: var(--ink); font-size: 16px; }
+    .rank-widget { border: 1px solid var(--line); border-radius: 12px; background: var(--soft); padding: 10px; }
+    .rank-toggle { display: inline-flex; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: #eef2f7; padding: 4px; margin-bottom: 8px; }
+    .rank-toggle button { border: 0; background: transparent; border-radius: 999px; padding: 6px 10px; color: var(--muted); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .rank-toggle button.active { background: #fff; color: #b94b24; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
+    .rank-group { display: none; gap: 6px; }
+    .rank-group.active { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .music-rank-card { display: grid; grid-template-columns: 22px 1fr; gap: 7px; align-items: center; border: 1px solid #ffd9c9; border-radius: 10px; background: #fff7f2; padding: 9px; min-height: 56px; }
+    .music-rank-card b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #e26a3d; color: #fff; font-size: 12px; }
+    .music-rank-card strong { display: block; font-size: 13px; line-height: 1.25; }
+    .music-rank-card span { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
+    .panel { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(37, 48, 70, .06); }
+    .top-insight.panel { padding: 14px 16px; }
+    .panel.app { border-top: 5px solid var(--app); }
+    .panel.web { border-top: 5px solid var(--web); }
+    .summary { margin: 0; padding-left: 22px; }
+    .summary li { margin: 8px 0; }
+    .summary strong { font-weight: 800; }
+    .metric-pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
+    .metric-stack { display: grid; gap: 10px; }
+    .metric-card { border: 1px solid var(--line); border-radius: 10px; padding: 13px; background: var(--soft); }
+    .action-list { margin: 0; padding-left: 20px; }
+    .action-list li { margin: 9px 0; }
+    .section-gap { margin-bottom: 14px; }
+    .kpi-label { color: var(--muted); font-size: 13px; margin-bottom: 7px; }
+    .kpi-value { font-size: 30px; font-weight: 800; letter-spacing: 0; }
+    .kpi-note { color: var(--muted); font-size: 12px; margin-top: 5px; }
+    .compare { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
+    .timeline { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .release-row { display: grid; grid-template-columns: 92px 1fr 90px; gap: 12px; align-items: center; }
+    .release-label { font-weight: 800; }
+    .track { height: 14px; border-radius: 999px; background: #edf1f5; overflow: hidden; }
+    .track span { display: block; height: 100%; border-radius: inherit; }
+    .app-fill { background: linear-gradient(90deg, #8fb1ff, var(--app)); }
+    .web-fill { background: linear-gradient(90deg, #ffb690, var(--web)); }
+    .release-days { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; }
+    .chart { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+    svg { min-width: 780px; width: 100%; height: auto; display: block; }
+    .axis { fill: var(--muted); font-size: 11px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: var(--muted); font-size: 12px; }
+    .key { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .bars { display: grid; gap: 11px; }
+    .bar-row { display: grid; grid-template-columns: minmax(118px, 1fr) minmax(120px, 2fr) 76px; gap: 10px; align-items: center; }
+    .bar-name { font-weight: 700; }
+    .bar-note { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .bar-value { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .rank-bars { display: grid; gap: 10px; }
+    .rank-row { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(180px, 2fr) 64px; gap: 10px; align-items: center; }
+    .rank-label { font-weight: 800; }
+    .rank-code { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .rank-value { text-align: right; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .flow-list { display: grid; gap: 11px; }
+    .flow-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(180px, 1.4fr) 118px 118px; gap: 10px; align-items: center; }
+    .flow-title { font-weight: 900; }
+    .flow-stat { text-align: right; font-variant-numeric: tabular-nums; }
+    .flow-stat strong { display: block; font-size: 18px; }
+    .flow-stat span { display: block; color: var(--muted); font-size: 12px; }
+    .reason-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+    .reason-card { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--soft); }
+    .reason-card strong { display: block; margin-bottom: 6px; }
+    .insights { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
+    .insight-box { border-left: 4px solid var(--line); }
+    .insight-box strong { display: block; margin-bottom: 8px; }
+    .click-map-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
+    .period-chip { display: inline-flex; align-items: center; border: 1px solid #d7e1ff; border-radius: 999px; background: #f1f5ff; color: #315bdc; padding: 5px 9px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+    .click-map-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(220px, .72fr); gap: 14px; align-items: stretch; }
+    .screen-map { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .screen-map img { display: block; width: 100%; height: auto; }
+    .action-map-list { display: grid; gap: 6px; align-content: start; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); padding: 12px; }
+    .action-map-item { display: grid; grid-template-columns: 24px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 32px; font-size: 12px; color: #3f4654; }
+    .action-map-item b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #f1e6ff; color: #7900d9; font-size: 11px; }
+    .action-map-item strong { color: var(--ink); font-size: 12px; white-space: nowrap; }
+    .action-map-item em { color: var(--muted); font-style: normal; font-size: 11px; margin-left: 4px; }
+    .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+    a { color: inherit; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
+    .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 800; }
+    .pill.app { background: #e8efff; color: #315bdc; }
+    .pill.web { background: #fff0e8; color: #b94b24; }
+    @media (max-width: 920px) {
+      header { display: block; }
+      .badges { justify-content: flex-start; margin-top: 12px; }
+      .top-insights, .tab-layout, .metric-pairs, .compare, .insights { grid-template-columns: 1fr; }
+      .shared-compact { grid-template-columns: 1fr; }
+      .rank-group.active { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; }
+      .bar-value { text-align: left; }
+      .rank-row { grid-template-columns: 1fr; }
+      .rank-value { text-align: left; }
+      .flow-row, .reason-grid, .click-map-layout { grid-template-columns: 1fr; }
+      .flow-stat { text-align: left; }
+      .click-map-head { align-items: flex-start; flex-direction: column; }
+    }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Music Library Usability Report</p>
-      <div class="hero-grid">
-        <div>
-          <h1>데이터 인사이트!</h1>
-          <p class="lead">공통 음원 라이브러리 성과를 하나로 합치기보다, 사용 맥락이 다른 웹스튜디오와 앱업로더를 분리해서 봐야 합니다. 웹스튜디오는 이미 큰 볼륨과 높은 발행 완료율을 가진 성숙 채널이고, 앱업로더는 아직 작지만 7월 말부터 사용 신호가 살아나는 초기 채널입니다.</p>
+  <main class="wrap">
+    <header>
+      <div>
+        <h1>음원 라이브러리 사용성 확인</h1>
+        <p class="sub">앱업로더와 웹스튜디오를 탭으로 나눠 각각의 사용 흐름과 일자별 이벤트 추이를 확인합니다.</p>
+      </div>
+      <div class="badges">
+        <span class="badge">1. 앱업로더</span>
+        <span class="badge">2. 웹스튜디오</span>
+        <span class="badge">기준일 2026-07-28</span>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="서비스별 사용성 탭">
+      <button class="tab-button app active" type="button" data-tab="app">1. 앱업로더</button>
+      <button class="tab-button web" type="button" data-tab="web">2. 웹스튜디오</button>
+    </nav>
+
+    <section class="grid top-insights">
+      <article class="panel top-insight app">
+        <h2>앱업로더 인사이트</h2>
+        <p>총량은 작지만 오디오 선택을 한 사용자는 반복 사용이 높습니다. 문제는 음원 선택까지 오는 사용자 폭이 아직 좁다는 점입니다.</p>
+      </article>
+      <article class="panel top-insight web">
+        <h2>웹스튜디오 인사이트</h2>
+        <p>음악을 찾고 재생하는 의도는 매우 강합니다. 다만 추가 클릭 이후 완료까지 약 23.2%가 빠져, 마지막 적용 UX가 우선 개선 지점입니다.</p>
+      </article>
+      <article class="panel top-insight compare">
+        <h2>비교 결론</h2>
+        <p>웹스튜디오는 탐색-재생-추가 흐름이 이미 크고, 앱업로더는 초기 검증 단계입니다. 앱업로더는 진입 확대, 웹스튜디오는 완료 전환 개선이 핵심입니다.</p>
+      </article>
+    </section>
+
+    <section class="panel shared-section">
+      <h2>음원 라이브러리 삽입 성과</h2>
+      <div class="music-channel-tabs" aria-label="음원 삽입 성과 채널 선택">
+        <button class="active" type="button" data-music-channel="web">웹스튜디오</button>
+        <button type="button" data-music-channel="app">앱업로더</button>
+      </div>
+      <div class="shared-compact">
+        <div class="music-channel-panel active" id="music-web">
+          <div class="shared-kpis">
+            <div class="mini-kpi">전체 음원 삽입 <strong>2,333건</strong></div>
+            <div class="mini-kpi">발행 완료 <strong>2,272건</strong></div>
+            <div class="mini-kpi">발행 완료율 <strong>97.4%</strong></div>
+            <div class="mini-kpi">미발행 <strong>61건</strong></div>
+          </div>
+          <p class="note">웹스튜디오 2026-05-12~2026-07-30 기준입니다. 일자별 발행 완료 건수 합산은 2,272건이며, 미발행 61건을 포함한 전체 음원 삽입 건수는 2,333건입니다.</p>
         </div>
-        <div class="summary">
-          <h2>프로젝트 액션 요약</h2>
-          <p>웹스튜디오는 미발행 건과 피크 재현 조건을 파고들고, 앱업로더는 업로드 이후 음원 삽입 진입점을 더 강하게 노출하는 실험이 우선입니다. 두 채널은 같은 음원 기능이라도 개선 목표가 다릅니다.</p>
+        <div class="music-channel-panel" id="music-app">
+          <div class="shared-kpis">
+            <div class="mini-kpi">전체 음원 삽입 <strong>77건</strong></div>
+            <div class="mini-kpi">발행 완료 <strong>77건</strong></div>
+            <div class="mini-kpi">발행 완료율 <strong>100.0%</strong></div>
+            <div class="mini-kpi">최고 일자 <strong>16건</strong></div>
+          </div>
+          <p class="note">앱업로더는 제공 데이터 기준 2026-06-25~2026-07-30에 관측된 일자별 발행 완료 건수입니다. 설명에는 7/13~ 기준이 포함되어 있으나, 원자료 행은 6/25부터 포함되어 있습니다.</p>
+        </div>
+        <div class="rank-widget">
+          <div class="rank-toggle" aria-label="음원 순위 구간 선택">
+            <button class="active" type="button" data-rank-group="top">1-5위</button>
+            <button type="button" data-rank-group="next">6-10위</button>
+          </div>
+          <div class="rank-group active" id="rank-top">
+            <div class="music-rank-card"><b>1</b><div><strong>토실토실 다람쥐</strong><span>ID 28 · 259회</span></div></div>
+            <div class="music-rank-card"><b>2</b><div><strong>두근두근 피크닉</strong><span>ID 48 · 187회</span></div></div>
+            <div class="music-rank-card"><b>3</b><div><strong>퐁당퐁당 물장구</strong><span>ID 5 · 117회</span></div></div>
+            <div class="music-rank-card"><b>4</b><div><strong>멍멍 미드나잇</strong><span>ID 47 · 87회</span></div></div>
+            <div class="music-rank-card"><b>5</b><div><strong>뿜뿜 디스코</strong><span>ID 52 · 87회</span></div></div>
+          </div>
+          <div class="rank-group" id="rank-next">
+            <div class="music-rank-card"><b>6</b><div><strong>걸어서 별까지</strong><span>ID 13 · 85회</span></div></div>
+            <div class="music-rank-card"><b>7</b><div><strong>텅 빈 하루</strong><span>ID 82 · 77회</span></div></div>
+            <div class="music-rank-card"><b>8</b><div><strong>묘한 걸</strong><span>ID 54 · 70회</span></div></div>
+            <div class="music-rank-card"><b>9</b><div><strong>새콤달콤송</strong><span>ID 11 · 64회</span></div></div>
+            <div class="music-rank-card"><b>10</b><div><strong>통통 무도회</strong><span>ID 8 · 64회</span></div></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <main class="wrap">
-    <div class="tabs" role="tablist" aria-label="음원 라이브러리 채널 선택">
-      <button class="active" data-channel="web" type="button">웹스튜디오</button>
-      <button data-channel="app" type="button">앱업로더</button>
-    </div>
-    <section class="metrics" id="metrics"></section>
-    <section class="grid">
-      <article class="panel">
-        <h2 id="chart-title"></h2>
-        <p class="sub">일자별 발행 완료 건수</p>
-        <div class="scroll"><div class="chart" id="chart"></div></div>
-      </article>
-      <article class="panel">
-        <h2 id="insight-title"></h2>
-        <p class="sub">상황 판단과 다음 액션</p>
-        <div class="insight"><strong>지표 상황</strong><p id="insight"></p></div>
-        <div class="insight amber"><strong>담당자 액션아이템</strong><p id="action"></p></div>
-      </article>
+      <p class="note">아래 인기 음원 순위는 기존 리포트와 동일하게 유지했습니다. 상단 삽입 성과만 새로 제공된 발행 완료 데이터 기준으로 웹스튜디오와 앱업로더를 분리했습니다.</p>
     </section>
-    <section class="grid bottom">
-      <article class="panel">
-        <h2>채널 비교</h2>
-        <p class="sub">웹스튜디오와 앱업로더의 음원 삽입 성과 분리</p>
-        <div class="comparison">
-          <div><span>웹스튜디오</span><strong>2,333건</strong><p>삽입 전체, 발행 완료 2,272건</p></div>
-          <div><span>앱업로더</span><strong>77건</strong><p>제공 데이터상 발행 완료 77건</p></div>
+
+    <section id="tab-app" class="tab-panel active">
+      <a class="quick-link app" href="https://kko.to/BmHWyjjfxX" target="_blank" rel="noopener noreferrer">티아라 피봇 바로가기</a>
+      <div class="grid tab-layout">
+        <article class="panel app">
+          <h2><span class="pill app">1. 앱업로더</span> 5줄 요약</h2>
+          <ol class="summary">
+            <li><strong>릴리즈/데이터:</strong> 2026-07-13 릴리즈, 데이터가 있는 날짜는 15일입니다.</li>
+            <li><strong>최고 이벤트:</strong> 2026-07-24에 362건으로 가장 크게 튀었습니다.</li>
+            <li><strong>일평균 추가 완료:</strong> 오디오 추가 27건, 데이터가 있는 날짜 기준 일평균 1.8회입니다.</li>
+            <li><strong>핵심 음원 행동:</strong> 오디오 선택 133건, 전체 이벤트의 9.3%입니다.</li>
+            <li><strong>전환/사용성:</strong> 화면/동선 기준으로는 편집 뷰어 527건, 컷편집 459건, 오디오 선택 228건 순입니다.</li>
+          </ol>
+        </article>
+        <article class="panel app insight-box" style="border-left-color:var(--app)">
+          <h2>인사이트 / 액션 아이템</h2>
+          <ol class="action-list">
+            <li><strong>진입 확대:</strong> 오디오 선택 비중이 9.3%라, 음원 라이브러리 진입 버튼의 위치와 문구를 먼저 점검합니다.</li>
+            <li><strong>반복 사용자 유지:</strong> 오디오 선택자는 1명당 7.4회 반복하므로, 최근 선택/즐겨찾기/추천 음원으로 재사용을 쉽게 만듭니다.</li>
+            <li><strong>발행 흐름 확인:</strong> 편집 뷰어 → 컷편집 → 오디오 선택 → 오디오 편집 → 구간 편집으로 갈수록 UV가 줄어드는 지점을 확인합니다.</li>
+            <li><strong>피크일 분석:</strong> 2026-07-24의 362건이 배포, 캠페인, 특정 사용자군 영향인지 원인을 확인합니다.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="grid tab-layout section-gap">
+        <article class="panel app">
+          <h2>앱업로더 핵심 데이터</h2>
+          <div class="metric-stack">
+            <div class="metric-card"><div class="kpi-label">릴리즈 경과</div><div class="kpi-value">16일차</div><div class="kpi-note">2026-07-13 릴리즈, 데이터 있는 날짜 15일</div></div>
+            <div class="metric-card"><div class="kpi-label">오디오 추가 / 일평균</div><div class="kpi-value">27 / 1.8</div><div class="kpi-note">오디오 추가 완료 성격의 행동 기준</div></div>
+            <div class="metric-card"><div class="kpi-label">음원 선택 사용</div><div class="kpi-value">133건</div><div class="kpi-note">일평균 9.5회, 전체 이벤트 9.3%</div></div>
+            <div class="metric-card"><div class="kpi-label">OS별 이벤트</div><div class="kpi-value">iOS 1,037</div><div class="kpi-note">Android 637건, iOS 비중 61.9%</div></div>
+          </div>
+        </article>
+        <article class="panel app">
+          <h2>앱업로더 사용성</h2>
+          <div class="timeline">
+            <div class="release-row"><div class="release-label">릴리즈</div><div class="track"><span class="app-fill" style="width:20.8%"></span></div><div class="release-days">16일차</div></div>
+            <div class="release-row"><div class="release-label">iOS 이벤트</div><div class="track"><span class="app-fill" style="width:61.9%"></span></div><div class="release-days">61.9%</div></div>
+            <div class="release-row"><div class="release-label">음원 선택</div><div class="track"><span class="app-fill" style="width:9.3%"></span></div><div class="release-days">9.3%</div></div>
+          </div>
+          <p class="note">초기 서비스라 총량보다 “진입한 사람이 실제 음원 선택과 발행 흐름까지 가는지”를 보는 것이 핵심입니다.</p>
+        </article>
+      </div>
+      <article class="panel app section-gap">
+        <h2>앱업로더 일자별 전체 이벤트수 / 순방문자수</h2>
+        <div class="chart">
+          <svg viewBox="0 0 980 310" role="img" aria-label="앱업로더 일자별 이벤트수와 순방문자수 추이">
+            <line x1="48" x2="940" y1="266" y2="266" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="202.5" y2="202.5" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="139" y2="139" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="75.5" y2="75.5" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="12" y2="12" stroke="#d9e0e7"/>
+            <text x="40" y="270" text-anchor="end" class="axis">0</text>
+            <text x="40" y="206.5" text-anchor="end" class="axis">91</text>
+            <text x="40" y="143" text-anchor="end" class="axis">181</text>
+            <text x="40" y="79.5" text-anchor="end" class="axis">272</text>
+            <text x="40" y="16" text-anchor="end" class="axis">362</text>
+            <path d="M48.0,212.7 L111.7,193.0 L175.4,252.0 L239.1,259.7 L302.9,256.9 L366.6,246.4 L430.3,220.4 L494.0,243.5 L557.7,193.7 L621.4,190.2 L685.1,109.5 L748.9,12.0 L812.6,193.7 L876.3,139.7 L940.0,92.0" fill="none" stroke="var(--app)" stroke-width="3"/>
+            <path d="M48.0,238.2 L111.7,206.5 L175.4,244.2 L239.1,254.1 L302.9,250.1 L366.6,246.2 L430.3,224.3 L494.0,238.2 L557.7,162.8 L621.4,170.8 L685.1,91.4 L748.9,12.0 L812.6,146.9 L876.3,103.3 L940.0,47.7" fill="none" stroke="var(--uv)" stroke-width="3" opacity=".9"/>
+            <circle cx="748.9" cy="12" r="5" fill="var(--app)"/><text x="620" y="24" class="axis">최고 07-24 · 362건</text>
+            <text x="48" y="294" class="axis">07-13</text>
+            <text x="302.9" y="294" text-anchor="middle" class="axis">07-17</text>
+            <text x="557.7" y="294" text-anchor="middle" class="axis">07-21</text>
+            <text x="748.9" y="294" text-anchor="middle" class="axis">07-24</text>
+            <text x="940" y="294" text-anchor="end" class="axis">07-27</text>
+          </svg>
         </div>
-        <p class="note">규모 비교만 보면 웹스튜디오가 압도적입니다. 하지만 앱업로더는 제품 표면과 유저 목적이 달라서, 절대량보다 업로드 직후 삽입 전환율과 반복 사용률을 별도 KPI로 추적하는 편이 좋습니다.</p>
+        <div class="legend">
+          <span class="key"><span class="dot" style="background:var(--app)"></span>이벤트수</span>
+          <span class="key"><span class="dot" style="background:var(--uv)"></span>순방문자수</span>
+        </div>
+        <p class="note">앱업로더 원본 리포트의 일자별 전체 이벤트수와 순방문자수 추이를 함께 표시했습니다.</p>
       </article>
-      <article class="panel">
-        <h2>최근 구간 겹쳐보기</h2>
-        <p class="sub">앱업로더 데이터가 있는 날짜 중심</p>
-        <div class="stack" id="stack"></div>
+      <article class="panel app section-gap">
+        <h2>화면/동선별 UV / 이벤트수</h2>
+        <div class="flow-list">
+          <div class="flow-row"><div class="flow-title">동영상 편집 뷰어</div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="flow-stat"><strong>279</strong><span>UV</span></div><div class="flow-stat"><strong>527</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 컷편집</div><div class="track"><span class="app-fill" style="width:87.1%"></span></div><div class="flow-stat"><strong>190</strong><span>UV</span></div><div class="flow-stat"><strong>459</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 필터 적용</div><div class="track"><span class="app-fill" style="width:20.9%"></span></div><div class="flow-stat"><strong>17</strong><span>UV</span></div><div class="flow-stat"><strong>110</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 음량 조정</div><div class="track"><span class="app-fill" style="width:16.1%"></span></div><div class="flow-stat"><strong>52</strong><span>UV</span></div><div class="flow-stat"><strong>85</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 음원 선택</div><div class="track"><span class="app-fill" style="width:43.3%"></span></div><div class="flow-stat"><strong>54</strong><span>UV</span></div><div class="flow-stat"><strong>228</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 음원 편집</div><div class="track"><span class="app-fill" style="width:26.2%"></span></div><div class="flow-stat"><strong>42</strong><span>UV</span></div><div class="flow-stat"><strong>138</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 구간 편집</div><div class="track"><span class="app-fill" style="width:19.5%"></span></div><div class="flow-stat"><strong>33</strong><span>UV</span></div><div class="flow-stat"><strong>103</strong><span>이벤트</span></div></div>
+        </div>
+        <p class="note">캡쳐 플로우 기준으로 관련 action_code를 묶어 합산했습니다. UV는 일자·코드·OS별 합산 기준입니다.</p>
+      </article>
+      <div class="grid tab-layout section-gap">
+        <article class="panel app">
+          <h2>피크일 07-24 이유 추정</h2>
+          <div class="reason-grid">
+            <div class="reason-card"><strong>오디오 행동 급증</strong><p class="note">오디오 선택 50건, 오디오 트랙 선택 29건으로 평소 대비 각각 7.4배, 8.3배 수준입니다.</p></div>
+            <div class="reason-card"><strong>탐색부터 편집까지 동반 상승</strong><p class="note">확인 79건, 타임라인 선택 70건도 함께 높아져 특정 기능만이 아니라 편집 플로우 전체 사용이 늘어난 날로 보입니다.</p></div>
+            <div class="reason-card"><strong>테스트/검수 가능성</strong><p class="note">오디오 추가, 리스트, 구간 편집 관련 코드도 함께 튀어 배포 후 내부 검수나 특정 사용자군 집중 사용 가능성이 있습니다.</p></div>
+          </div>
+        </article>
+        <article class="panel app">
+          <h2>iOS / Android 사용성</h2>
+          <div class="timeline">
+            <div class="release-row"><div class="release-label">iOS</div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="release-days">1,037건</div></div>
+            <div class="release-row"><div class="release-label">Android</div><div class="track"><span class="app-fill" style="width:61.4%"></span></div><div class="release-days">637건</div></div>
+            <div class="release-row"><div class="release-label">반복도</div><div class="track"><span class="app-fill" style="width:82.1%"></span></div><div class="release-days">A 2.8 / i 2.3</div></div>
+          </div>
+          <p class="note">이벤트 총량은 iOS가 크지만, UV 대비 이벤트 반복도는 Android가 더 높습니다. 오디오 구간 편집은 Android 쪽 이벤트가 상대적으로 강합니다.</p>
+        </article>
+      </div>
+      <article class="panel app section-gap">
+        <h2>앱업로더 이벤트수 Top 10</h2>
+        <div class="rank-bars">
+          <div class="rank-row"><div><span class="rank-label">확인</span><span class="rank-code">MO-SF12.06</span></div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="rank-value">345</div></div>
+          <div class="rank-row"><div><span class="rank-label">타임라인 선택</span><span class="rank-code">MO-SF12.15</span></div><div class="track"><span class="app-fill" style="width:86.7%"></span></div><div class="rank-value">299</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 선택</span><span class="rank-code">MO-SF12.22</span></div><div class="track"><span class="app-fill" style="width:38.6%"></span></div><div class="rank-value">133</div></div>
+          <div class="rank-row"><div><span class="rank-label">타임라인 재생 버튼</span><span class="rank-code">MO-SF12.14</span></div><div class="track"><span class="app-fill" style="width:31.9%"></span></div><div class="rank-value">110</div></div>
+          <div class="rank-row"><div><span class="rank-label">동영상 필터</span><span class="rank-code">MO-SF12.02</span></div><div class="track"><span class="app-fill" style="width:29.0%"></span></div><div class="rank-value">100</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 트랙 선택</span><span class="rank-code">MO-SF12.16</span></div><div class="track"><span class="app-fill" style="width:20.6%"></span></div><div class="rank-value">71</div></div>
+          <div class="rank-row"><div><span class="rank-label">뒤로가기</span><span class="rank-code">MO-SF12.05</span></div><div class="track"><span class="app-fill" style="width:14.5%"></span></div><div class="rank-value">50</div></div>
+          <div class="rank-row"><div><span class="rank-label">동영상 볼륨조절</span><span class="rank-code">MO-SF12.04</span></div><div class="track"><span class="app-fill" style="width:13.6%"></span></div><div class="rank-value">47</div></div>
+          <div class="rank-row"><div><span class="rank-label">매핑 확인 필요</span><span class="rank-code">MO-SF12.21</span></div><div class="track"><span class="app-fill" style="width:13.0%"></span></div><div class="rank-value">45</div></div>
+          <div class="rank-row"><div><span class="rank-label">매핑 확인 필요</span><span class="rank-code">MO-SF12.24</span></div><div class="track"><span class="app-fill" style="width:11.6%"></span></div><div class="rank-value">40</div></div>
+        </div>
+        <p class="note">상위 10개 코드 합산 이벤트수 1,240건, 전체의 87.0%입니다.</p>
+      </article>
+      <article class="panel app section-gap">
+        <div class="click-map-head">
+          <div>
+            <h2>참고: 앱업로더 화면별 클릭 평균</h2>
+            <p class="comment-note">화면 번호와 오른쪽 목록을 매칭해서 일평균과 총합을 확인합니다.</p>
+          </div>
+          <span class="period-chip">2026-07-22~2026-07-28</span>
+        </div>
+        <div class="click-map-layout">
+          <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
+            <img src="assets/app-editor-click-map.png?v=20260729-2" alt="앱업로더 동영상 편집기 화면">
+          </div>
+          <div class="action-map-list" aria-label="번호별 사용자 행동명">
+            <div class="action-map-item"><b>1</b><span>뒤로가기</span><strong>9.7회<em>/68회</em></strong></div>
+            <div class="action-map-item"><b>2</b><span>확인</span><strong>68.7회<em>/481회</em></strong></div>
+            <div class="action-map-item"><b>3</b><span>오디오 추가</span><strong>4.7회<em>/33회</em></strong></div>
+            <div class="action-map-item"><b>4</b><span>오디오 추가 삭제</span><strong>0.0회<em>/0회</em></strong></div>
+            <div class="action-map-item"><b>5</b><span>미리보기 재생 버튼</span><strong>0.4회<em>/3회</em></strong></div>
+            <div class="action-map-item"><b>6</b><span>동영상 편집 버튼</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>7</b><span>확장 버튼</span><strong>0.3회<em>/2회</em></strong></div>
+            <div class="action-map-item"><b>8</b><span>UNDO</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>9</b><span>REDO</span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>10</b><span>타임라인 재생 버튼</span><strong>14.4회<em>/101회</em></strong></div>
+            <div class="action-map-item"><b>11</b><span>타임라인 선택</span><strong>48.6회<em>/340회</em></strong></div>
+            <div class="action-map-item"><b>12</b><span>오디오 트랙 선택</span><strong>12.3회<em>/86회</em></strong></div>
+            <div class="action-map-item"><b>13</b><span>동영상 필터</span><strong>4.4회<em>/31회</em></strong></div>
+            <div class="action-map-item"><b>14</b><span>동영상 좌우반전</span><strong>2.6회<em>/18회</em></strong></div>
+            <div class="action-map-item"><b>15</b><span>동영상 볼륨조절</span><strong>5.1회<em>/36회</em></strong></div>
+            <div class="action-map-item"><b>16</b><span>동영상 볼륨조절 닫기</span><strong>1.9회<em>/13회</em></strong></div>
+            <div class="action-map-item"><b>17</b><span>동영상 음소거</span><strong>0.7회<em>/5회</em></strong></div>
+            <div class="action-map-item"><b>18</b><span>동영상 볼륨조절 적용</span><strong>1.1회<em>/8회</em></strong></div>
+          </div>
+        </div>
+        <p class="note">앱업로더 최신 CSV에 있는 7일 기준입니다. 번호와 사용자 행동명은 우측 표의 key/action_code 매핑 기준으로 연결했습니다.</p>
       </article>
     </section>
+
+    <section id="tab-web" class="tab-panel">
+      <a class="quick-link web" href="https://kko.to/JOsWWFCvLo" target="_blank" rel="noopener noreferrer">티아라 피봇 바로가기</a>
+      <div class="grid tab-layout">
+        <article class="panel web">
+          <h2><span class="pill web">2. 웹스튜디오</span> 5줄 요약</h2>
+          <ol class="summary">
+            <li><strong>릴리즈/데이터:</strong> 2026-05-12 릴리즈, 데이터가 있는 날짜는 25일입니다.</li>
+            <li><strong>최고 이벤트:</strong> 2026-05-31에 1,623건으로 가장 크게 튀었습니다.</li>
+            <li><strong>일평균 추가 완료:</strong> 오디오 추가 완료 1,266건, 데이터가 있는 날짜 기준 일평균 50.6회입니다.</li>
+            <li><strong>핵심 음원 행동:</strong> 오디오 재생 9,351건, 전체 이벤트의 42.9%입니다.</li>
+            <li><strong>전환/사용성:</strong> 오디오 추가 완료율 76.8%, 마지막 적용 단계에서 23.2%가 빠집니다.</li>
+          </ol>
+        </article>
+        <article class="panel web insight-box" style="border-left-color:var(--web)">
+          <h2>인사이트 / 액션 아이템</h2>
+          <ol class="action-list">
+            <li><strong>완료 전환 개선:</strong> 오디오 추가 1,648건 중 완료 1,266건이라, 마지막 적용 버튼과 성공 피드백을 우선 개선합니다.</li>
+            <li><strong>탐색 흐름 강화:</strong> 오디오 재생이 42.9%로 높으니, 재생 직후 추가/선택 액션을 더 가깝게 붙입니다.</li>
+            <li><strong>카테고리 활용:</strong> 카테고리 클릭 2,664건을 추천 음원, 인기 음원, 최근 사용 음원으로 연결합니다.</li>
+            <li><strong>음량 이슈 점검:</strong> 음량 관련 행동과 30% 이하 토스트가 많아 기본 음량, 토스트 타이밍, 미리듣기 품질을 확인합니다.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="grid tab-layout section-gap">
+        <article class="panel web">
+          <h2>웹스튜디오 핵심 데이터</h2>
+          <div class="metric-stack">
+            <div class="metric-card"><div class="kpi-label">릴리즈 경과</div><div class="kpi-value">77일차</div><div class="kpi-note">2026-05-12 릴리즈, 데이터 있는 날짜 25일</div></div>
+            <div class="metric-card"><div class="kpi-label">오디오 추가 완료 / 일평균</div><div class="kpi-value">1,266 / 50.6</div><div class="kpi-note">데이터가 있는 날짜 기준</div></div>
+            <div class="metric-card"><div class="kpi-label">음원 재생 사용</div><div class="kpi-value">9,351건</div><div class="kpi-note">전체 이벤트 42.9%, 핵심 탐색 신호</div></div>
+            <div class="metric-card"><div class="kpi-label">추가 완료 전환</div><div class="kpi-value">76.8%</div><div class="kpi-note">오디오 추가 1,648 → 완료 1,266</div></div>
+          </div>
+        </article>
+        <article class="panel web">
+          <h2>웹스튜디오 사용성</h2>
+          <div class="timeline">
+            <div class="release-row"><div class="release-label">릴리즈</div><div class="track"><span class="web-fill" style="width:100%"></span></div><div class="release-days">77일차</div></div>
+            <div class="release-row"><div class="release-label">완료 전환</div><div class="track"><span class="web-fill" style="width:76.8%"></span></div><div class="release-days">76.8%</div></div>
+            <div class="release-row"><div class="release-label">음원 재생</div><div class="track"><span class="web-fill" style="width:42.9%"></span></div><div class="release-days">42.9%</div></div>
+          </div>
+          <p class="note">웹스튜디오는 음원 탐색 의도가 충분히 크므로, 오디오 추가 이후 완료까지의 마지막 단계를 줄이는 것이 우선입니다.</p>
+        </article>
+      </div>
+      <article class="panel web section-gap">
+        <h2>웹스튜디오 일자별 이벤트수 추이</h2>
+        <div class="chart">
+          <svg viewBox="0 0 980 310" role="img" aria-label="웹스튜디오 일자별 이벤트수와 순방문자수 추이">
+            <line x1="48" x2="940" y1="266" y2="266" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="202.5" y2="202.5" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="139" y2="139" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="75.5" y2="75.5" stroke="#d9e0e7"/>
+            <line x1="48" x2="940" y1="12" y2="12" stroke="#d9e0e7"/>
+            <text x="40" y="270" text-anchor="end" class="axis">0</text>
+            <text x="40" y="206.5" text-anchor="end" class="axis">406</text>
+            <text x="40" y="143" text-anchor="end" class="axis">812</text>
+            <text x="40" y="79.5" text-anchor="end" class="axis">1,217</text>
+            <text x="40" y="16" text-anchor="end" class="axis">1,623</text>
+            <path d="M48.0,151.2 L85.2,128.8 L122.3,136.5 L159.5,138.9 L196.7,137.5 L233.8,133.7 L271.0,111.7 L308.2,132.9 L345.3,122.9 L382.5,178.1 L419.7,67.1 L456.8,145.6 L494.0,12.0 L531.2,153.5 L568.3,109.9 L605.5,90.0 L642.7,151.8 L679.8,148.7 L717.0,166.7 L754.2,163.9 L791.3,145.3 L828.5,155.3 L865.7,138.8 L902.8,151.0 L940.0,152.7" fill="none" stroke="var(--web)" stroke-width="3"/>
+            <circle cx="494" cy="12" r="5" fill="var(--web)"/><text x="504" y="24" class="axis">최고 05-31 · 1,623건</text>
+            <text x="48" y="294" class="axis">05-12</text>
+            <text x="494" y="294" text-anchor="middle" class="axis">05-31</text>
+            <text x="754.2" y="294" text-anchor="middle" class="axis">07-09</text>
+            <text x="940" y="294" text-anchor="end" class="axis">07-27</text>
+          </svg>
+        </div>
+        <div class="legend">
+          <span class="key"><span class="dot" style="background:var(--web)"></span>이벤트수</span>
+        </div>
+        <p class="note">웹스튜디오는 현재 소스에 있는 일자별 이벤트수 기준으로 표시했습니다.</p>
+      </article>
+      <article class="panel web section-gap">
+        <h2>웹스튜디오 액션명 이벤트수 순위</h2>
+        <div class="rank-bars">
+          <div class="rank-row"><div><span class="rank-label">오디오 재생 클릭</span><span class="rank-code">핵심 사용</span></div><div class="track"><span class="web-fill" style="width:100%"></span></div><div class="rank-value">9,351</div></div>
+          <div class="rank-row"><div><span class="rank-label">카테고리 클릭</span><span class="rank-code">탐색</span></div><div class="track"><span class="web-fill" style="width:28.5%"></span></div><div class="rank-value">2,664</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 추가 클릭</span><span class="rank-code">제작 전환</span></div><div class="track"><span class="web-fill" style="width:17.6%"></span></div><div class="rank-value">1,648</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 선택 클릭</span><span class="rank-code">제작 전환</span></div><div class="track"><span class="web-fill" style="width:15.9%"></span></div><div class="rank-value">1,483</div></div>
+          <div class="rank-row"><div><span class="rank-label">동영상 재생 클릭</span><span class="rank-code">검수</span></div><div class="track"><span class="web-fill" style="width:14.8%"></span></div><div class="rank-value">1,384</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 추가 완료 클릭</span><span class="rank-code">제작 전환</span></div><div class="track"><span class="web-fill" style="width:13.5%"></span></div><div class="rank-value">1,266</div></div>
+          <div class="rank-row"><div><span class="rank-label">동영상 음량 조절 클릭</span><span class="rank-code">편집</span></div><div class="track"><span class="web-fill" style="width:10.9%"></span></div><div class="rank-value">1,024</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 음량 조절 클릭</span><span class="rank-code">편집</span></div><div class="track"><span class="web-fill" style="width:10.8%"></span></div><div class="rank-value">1,007</div></div>
+          <div class="rank-row"><div><span class="rank-label">음량 30% 이하 토스트 노출</span><span class="rank-code">품질 신호</span></div><div class="track"><span class="web-fill" style="width:6.6%"></span></div><div class="rank-value">620</div></div>
+          <div class="rank-row"><div><span class="rank-label">재생 타임라인 이동 클릭</span><span class="rank-code">검수</span></div><div class="track"><span class="web-fill" style="width:6.5%"></span></div><div class="rank-value">609</div></div>
+          <div class="rank-row"><div><span class="rank-label">나가기 클릭</span><span class="rank-code">이탈</span></div><div class="track"><span class="web-fill" style="width:4.4%"></span></div><div class="rank-value">416</div></div>
+          <div class="rank-row"><div><span class="rank-label">뒤로가기 클릭</span><span class="rank-code">이탈</span></div><div class="track"><span class="web-fill" style="width:1.8%"></span></div><div class="rank-value">166</div></div>
+        </div>
+        <p class="note">새 웹스튜디오 CSV 기준입니다. 해당 파일은 action_name별 이벤트수만 포함하고 UV는 포함하지 않습니다.</p>
+      </article>
+    </section>
+
   </main>
   <script>
-    const webStudio = [["05/12",10],["05/13",23],["05/14",24],["05/15",31],["05/16",16],["05/17",64],["05/18",13],["05/19",17],["05/20",32],["05/21",26],["05/22",20],["05/23",20],["05/24",23],["05/25",36],["05/26",40],["05/27",55],["05/28",69],["05/29",49],["05/30",39],["05/31",115],["06/01",20],["06/02",29],["06/03",30],["06/04",27],["06/05",27],["06/06",35],["06/07",39],["06/08",47],["06/09",77],["06/10",21],["06/11",24],["06/12",11],["06/13",12],["06/14",10],["06/15",13],["06/16",19],["06/17",12],["06/18",11],["06/19",27],["06/20",13],["06/21",21],["06/22",12],["06/23",18],["06/24",25],["06/25",31],["06/26",39],["06/27",19],["06/28",18],["06/29",40],["06/30",47],["07/01",21],["07/02",18],["07/03",18],["07/04",18],["07/05",20],["07/06",18],["07/07",29],["07/08",16],["07/09",18],["07/10",16],["07/11",13],["07/12",17],["07/13",15],["07/14",33],["07/15",49],["07/16",18],["07/17",14],["07/18",14],["07/19",21],["07/20",28],["07/21",20],["07/22",41],["07/23",50],["07/24",40],["07/25",28],["07/26",27],["07/27",35],["07/28",41],["07/29",57],["07/30",23]].map(([date,count])=>({date,count}));
-    const appUploader = [["06/25",8],["06/26",4],["07/03",16],["07/06",1],["07/19",1],["07/23",2],["07/24",11],["07/25",3],["07/26",2],["07/27",5],["07/28",7],["07/29",10],["07/30",7]].map(([date,count])=>({date,count}));
-    const channels = {
-      web:{name:"웹스튜디오",title:"웹스튜디오 음원 라이브러리 삽입 성과",period:"2026.05.12-2026.07.30",data:webStudio,total:2333,unpublished:61,insight:"웹스튜디오는 총 2,333건 중 2,272건이 발행 완료되어 완료율이 97.4%입니다. 5월 말과 6월 9일에 강한 피크가 있고, 6월 중순 이후에는 일 10-50건대의 안정 구간으로 내려왔습니다.",action:"피크가 발생한 날짜의 유입/운영 조건을 확인해 재현 가능한 캠페인으로 만들고, 미발행 61건은 발행 전 마지막 단계에서 저장/검수/권한 이슈가 있었는지 확인하세요."},
-      app:{name:"앱업로더",title:"앱업로더 음원 라이브러리 삽입 성과",period:"제공 데이터 기준 2026.06.25-2026.07.30",data:appUploader,total:77,unpublished:0,insight:"앱업로더는 총 77건으로 아직 웹스튜디오 대비 규모는 작지만, 7월 24일 이후 연속 관측일이 늘며 실제 사용 흐름이 생기고 있습니다. 7월 3일 16건이 최고점입니다.",action:"앱업로더는 초기 사용량 확보가 우선입니다. 업로드 완료 직후 음원 삽입 CTA를 강화하고, 7월 말 사용 증가 구간의 진입 경로를 따로 확인해 반복 노출 지점을 키우세요."}
-    };
-    const fmt = new Intl.NumberFormat("ko-KR");
-    function render(key){
-      const c = channels[key], completed = c.data.reduce((s,d)=>s+d.count,0), avg = completed/c.data.length, peak = c.data.reduce((m,d)=>d.count>m.count?d:m,c.data[0]), max = Math.max(...c.data.map(d=>d.count));
-      document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.channel===key));
-      document.getElementById("metrics").innerHTML = [
-        ["총 음원 삽입",`${fmt.format(c.total)}건`,c.period],
-        ["발행 완료",`${fmt.format(completed)}건`,`${c.data.length}개 일자 합산`],
-        ["발행 완료율",`${(completed/c.total*100).toFixed(1)}%`,`미발행 ${fmt.format(c.unpublished)}건`],
-        ["일 평균 / 최고",`${avg.toFixed(1)}건`,`${peak.date} 최고 ${fmt.format(peak.count)}건`]
-      ].map(([l,v,n])=>`<article class="card"><p>${l}</p><strong>${v}</strong><span>${n}</span></article>`).join("");
-      document.getElementById("chart-title").textContent = c.title;
-      document.getElementById("insight-title").textContent = `${c.name} 인사이트`;
-      document.getElementById("insight").textContent = c.insight;
-      document.getElementById("action").textContent = c.action;
-      const chart = document.getElementById("chart");
-      chart.style.gridTemplateColumns = `repeat(${c.data.length}, minmax(18px, 1fr))`;
-      chart.innerHTML = c.data.map(d=>`<div class="bar-wrap"><div class="bar" style="height:${d.count/max*100}%"><span>${d.count}</span></div><small>${d.date}</small></div>`).join("");
-    }
-    function renderStack(){
-      const dates = [...new Set([...webStudio,...appUploader].map(d=>d.date))].filter(d=>d>="06/25");
-      document.getElementById("stack").innerHTML = dates.map(date=>{
-        const web = webStudio.find(d=>d.date===date)?.count || 0, app = appUploader.find(d=>d.date===date)?.count || 0, total = web+app || 1;
-        return `<div class="stack-row"><b>${date}</b><div class="track"><i class="web" style="width:${web/total*100}%"></i><i class="app" style="width:${app/total*100}%"></i></div><span>웹 ${web} / 앱 ${app}</span></div>`;
-      }).join("");
-    }
-    document.querySelectorAll(".tabs button").forEach(button=>button.addEventListener("click",()=>render(button.dataset.channel)));
-    render("web"); renderStack();
+    const buttons = document.querySelectorAll(".tab-button");
+    const panels = document.querySelectorAll(".tab-panel");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => item.classList.remove("active"));
+        panels.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`#tab-${button.dataset.tab}`).classList.add("active");
+      });
+    });
+    const rankButtons = document.querySelectorAll("[data-rank-group]");
+    rankButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        rankButtons.forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".rank-group").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
+      });
+    });
+    const musicButtons = document.querySelectorAll("[data-music-channel]");
+    musicButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        musicButtons.forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".music-channel-panel").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`#music-${button.dataset.musicChannel}`).classList.add("active");
+      });
+    });
   </script>
 </body>
 </html>
