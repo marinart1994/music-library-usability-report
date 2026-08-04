@@ -194,13 +194,13 @@
     </section>
 
     <section class="panel shared-section">
-      <h2>음원 라이브러리 삽입 성과</h2>
+      <h2 id="music-performance-title">앱업로더 음원 라이브러리 삽입 성과</h2>
       <div class="music-channel-tabs" aria-label="음원 삽입 성과 채널 선택">
-        <button class="active" type="button" data-music-channel="web">웹스튜디오</button>
-        <button type="button" data-music-channel="app">앱업로더</button>
+        <button type="button" data-music-channel="web">웹스튜디오</button>
+        <button class="active" type="button" data-music-channel="app">앱업로더</button>
       </div>
       <div class="shared-compact">
-        <div class="music-channel-panel active" id="music-web">
+        <div class="music-channel-panel" id="music-web">
           <div class="shared-kpis">
             <div class="mini-kpi">전체 음원 삽입 <strong>2,333건</strong></div>
             <div class="mini-kpi">발행 완료 <strong>2,272건</strong></div>
@@ -209,7 +209,7 @@
           </div>
           <p class="note">웹스튜디오 2026-05-12~2026-07-30 기준입니다. 일자별 발행 완료 건수 합산은 2,272건이며, 미발행 61건을 포함한 전체 음원 삽입 건수는 2,333건입니다.</p>
         </div>
-        <div class="music-channel-panel" id="music-app">
+        <div class="music-channel-panel active" id="music-app">
           <div class="shared-kpis">
             <div class="mini-kpi">전체 음원 삽입 <strong>48건</strong></div>
             <div class="mini-kpi">발행 완료 <strong>48건</strong></div>
@@ -494,12 +494,21 @@
   <script>
     const buttons = document.querySelectorAll(".tab-button");
     const panels = document.querySelectorAll(".tab-panel");
+    const musicButtons = document.querySelectorAll("[data-music-channel]");
+    const musicTitle = document.querySelector("#music-performance-title");
+    const setMusicChannel = (channel) => {
+      musicButtons.forEach((item) => item.classList.toggle("active", item.dataset.musicChannel === channel));
+      document.querySelectorAll(".music-channel-panel").forEach((item) => item.classList.remove("active"));
+      document.querySelector(`#music-${channel}`).classList.add("active");
+      musicTitle.textContent = channel === "web" ? "웹스튜디오 음원 라이브러리 삽입 성과" : "앱업로더 음원 라이브러리 삽입 성과";
+    };
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         buttons.forEach((item) => item.classList.remove("active"));
         panels.forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
         document.querySelector(`#tab-${button.dataset.tab}`).classList.add("active");
+        setMusicChannel(button.dataset.tab);
       });
     });
     const rankButtons = document.querySelectorAll("[data-rank-group]");
@@ -511,13 +520,9 @@
         document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
       });
     });
-    const musicButtons = document.querySelectorAll("[data-music-channel]");
     musicButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        musicButtons.forEach((item) => item.classList.remove("active"));
-        document.querySelectorAll(".music-channel-panel").forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-        document.querySelector(`#music-${button.dataset.musicChannel}`).classList.add("active");
+        setMusicChannel(button.dataset.musicChannel);
       });
     });
   </script>
