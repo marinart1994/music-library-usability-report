@@ -53,11 +53,6 @@
     .shared-section { margin: 0 0 14px; }
     .shared-section h2 { font-size: 17px; margin-bottom: 10px; }
     .shared-compact { display: grid; grid-template-columns: 1fr; gap: 8px; }
-    .music-channel-tabs { display: inline-flex; gap: 4px; border: 1px solid var(--line); border-radius: 999px; background: #eef2f7; padding: 4px; margin: 0 0 10px; }
-    .music-channel-tabs button { border: 0; background: transparent; border-radius: 999px; padding: 7px 12px; color: var(--muted); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
-    .music-channel-tabs button.active { background: #fff; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
-    .music-channel-tabs button[data-music-channel="web"].active { color: #b94b24; }
-    .music-channel-tabs button[data-music-channel="app"].active { color: #315bdc; }
     .music-channel-panel { display: none; }
     .music-channel-panel.active { display: block; }
     .shared-kpis { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -195,10 +190,6 @@
 
     <section class="panel shared-section">
       <h2 id="music-performance-title">앱업로더 음원 라이브러리 삽입 성과</h2>
-      <div class="music-channel-tabs" aria-label="음원 삽입 성과 채널 선택">
-        <button type="button" data-music-channel="web">웹스튜디오</button>
-        <button class="active" type="button" data-music-channel="app">앱업로더</button>
-      </div>
       <div class="shared-compact">
         <div class="music-channel-panel" id="music-web">
           <div class="shared-kpis">
@@ -494,10 +485,8 @@
   <script>
     const buttons = document.querySelectorAll(".tab-button");
     const panels = document.querySelectorAll(".tab-panel");
-    const musicButtons = document.querySelectorAll("[data-music-channel]");
     const musicTitle = document.querySelector("#music-performance-title");
     const setMusicChannel = (channel) => {
-      musicButtons.forEach((item) => item.classList.toggle("active", item.dataset.musicChannel === channel));
       document.querySelectorAll(".music-channel-panel").forEach((item) => item.classList.remove("active"));
       document.querySelector(`#music-${channel}`).classList.add("active");
       musicTitle.textContent = channel === "web" ? "웹스튜디오 음원 라이브러리 삽입 성과" : "앱업로더 음원 라이브러리 삽입 성과";
@@ -518,11 +507,6 @@
         document.querySelectorAll(".rank-group").forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
         document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
-      });
-    });
-    musicButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        setMusicChannel(button.dataset.musicChannel);
       });
     });
   </script>
