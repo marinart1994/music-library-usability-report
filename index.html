@@ -366,6 +366,48 @@
           <span class="key"><span class="dot" style="background:var(--uv)"></span>오디오 추가 클릭 MO-SF12.16+MO-SF12.07, 우측 축</span>
         </div>
         <p class="note">2026-07-13~2026-08-04 기준입니다. 숏폼 업로드 클릭은 총 2,258회, 오디오 추가 클릭은 총 501회이며, 전체 기간 이벤트 기준 오디오 추가 클릭 비율은 22.2%입니다.</p>
+        <h3 style="margin-top:18px">앱업로더 일자별 발행 완료 건수</h3>
+        <div class="chart">
+          <div class="chart-inner">
+          <svg viewBox="0 0 980 310" role="img" aria-label="앱업로더 음원 삽입 후 일자별 발행 완료 건수 추이">
+            <line x1="56" x2="924" y1="258" y2="258" stroke="#d9e0e7"/>
+            <line x1="56" x2="924" y1="198" y2="198" stroke="#d9e0e7"/>
+            <line x1="56" x2="924" y1="138" y2="138" stroke="#d9e0e7"/>
+            <line x1="56" x2="924" y1="78" y2="78" stroke="#d9e0e7"/>
+            <line x1="56" x2="924" y1="18" y2="18" stroke="#d9e0e7"/>
+            <text x="48" y="262" text-anchor="end" class="axis">0</text>
+            <text x="48" y="202" text-anchor="end" class="axis">4</text>
+            <text x="48" y="142" text-anchor="end" class="axis">8</text>
+            <text x="48" y="82" text-anchor="end" class="axis">12</text>
+            <text x="48" y="22" text-anchor="end" class="axis">16</text>
+            <path d="M56.0,138.0 L128.3,198.0 L200.7,18.0 L273.0,243.0 L345.3,243.0 L417.7,228.0 L490.0,93.0 L562.3,213.0 L634.7,228.0 L707.0,183.0 L779.3,153.0 L851.7,108.0 L924.0,153.0" fill="none" stroke="var(--app)" stroke-width="3"/>
+            <circle cx="200.7" cy="18" r="5" fill="var(--app)"/><text x="214" y="30" class="axis">최고 07-03 · 16건</text>
+            <text x="56" y="292" class="axis">06-25</text>
+            <text x="200.7" y="292" text-anchor="middle" class="axis">07-03</text>
+            <text x="490" y="292" text-anchor="middle" class="axis">07-24</text>
+            <text x="707" y="292" text-anchor="middle" class="axis">07-27</text>
+            <text x="924" y="292" text-anchor="end" class="axis">07-30</text>
+          </svg>
+          <button class="chart-point" style="left:5.71%" type="button" data-date="2026-06-25" data-release="8" aria-label="06-25 발행 완료 8건"></button>
+          <button class="chart-point" style="left:13.10%" type="button" data-date="2026-06-26" data-release="4" aria-label="06-26 발행 완료 4건"></button>
+          <button class="chart-point" style="left:20.48%" type="button" data-date="2026-07-03" data-release="16" aria-label="07-03 발행 완료 16건"></button>
+          <button class="chart-point" style="left:27.86%" type="button" data-date="2026-07-06" data-release="1" aria-label="07-06 발행 완료 1건"></button>
+          <button class="chart-point" style="left:35.24%" type="button" data-date="2026-07-19" data-release="1" aria-label="07-19 발행 완료 1건"></button>
+          <button class="chart-point" style="left:42.62%" type="button" data-date="2026-07-23" data-release="2" aria-label="07-23 발행 완료 2건"></button>
+          <button class="chart-point" style="left:50.00%" type="button" data-date="2026-07-24" data-release="11" aria-label="07-24 발행 완료 11건"></button>
+          <button class="chart-point" style="left:57.38%" type="button" data-date="2026-07-25" data-release="3" aria-label="07-25 발행 완료 3건"></button>
+          <button class="chart-point" style="left:64.76%" type="button" data-date="2026-07-26" data-release="2" aria-label="07-26 발행 완료 2건"></button>
+          <button class="chart-point" style="left:72.14%" type="button" data-date="2026-07-27" data-release="5" aria-label="07-27 발행 완료 5건"></button>
+          <button class="chart-point" style="left:79.52%" type="button" data-date="2026-07-28" data-release="7" aria-label="07-28 발행 완료 7건"></button>
+          <button class="chart-point" style="left:86.90%" type="button" data-date="2026-07-29" data-release="10" aria-label="07-29 발행 완료 10건"></button>
+          <button class="chart-point" style="left:94.29%" type="button" data-date="2026-07-30" data-release="7" aria-label="07-30 발행 완료 7건"></button>
+          <div class="chart-tooltip" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="legend">
+          <span class="key"><span class="dot" style="background:var(--app)"></span>음원 삽입 후 발행 완료 건수</span>
+        </div>
+        <p class="note">제공 데이터 전체 기준입니다. 총 77건이며, 최고 일자는 2026-07-03 16건입니다.</p>
       </article>
       <article class="panel app section-gap">
         <h2>화면/동선별 UV / 이벤트수</h2>
@@ -710,11 +752,18 @@
       const showTooltip = (point) => {
         const left = parseFloat(point.style.left);
         tooltip.style.left = `${Math.min(88, Math.max(12, left))}%`;
-        tooltip.innerHTML = `
-          <strong>${point.dataset.date}</strong>
-          <span>숏폼 업로드 클릭 <b>${Number(point.dataset.upload).toLocaleString("ko-KR")}회</b></span>
-          <span>오디오 추가 클릭 <b>${Number(point.dataset.audio).toLocaleString("ko-KR")}회</b></span>
-        `;
+        if (point.dataset.release) {
+          tooltip.innerHTML = `
+            <strong>${point.dataset.date}</strong>
+            <span>발행 완료 <b>${Number(point.dataset.release).toLocaleString("ko-KR")}건</b></span>
+          `;
+        } else {
+          tooltip.innerHTML = `
+            <strong>${point.dataset.date}</strong>
+            <span>숏폼 업로드 클릭 <b>${Number(point.dataset.upload).toLocaleString("ko-KR")}회</b></span>
+            <span>오디오 추가 클릭 <b>${Number(point.dataset.audio).toLocaleString("ko-KR")}회</b></span>
+          `;
+        }
         tooltip.classList.add("active");
       };
       const hideTooltip = () => tooltip.classList.remove("active");
