@@ -368,6 +368,25 @@
         <div class="click-map-layout">
           <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
             <img src="assets/app-editor-click-map.png?v=20260729-2" alt="앱업로더 동영상 편집기 화면">
+            <button class="map-hotspot" style="left:4.5%;top:15.2%" type="button" data-map-hotspot="1" aria-label="1번 뒤로가기"></button>
+            <button class="map-hotspot" style="left:28.7%;top:15.2%" type="button" data-map-hotspot="2" aria-label="2번 확인"></button>
+            <button class="map-hotspot" style="left:14.0%;top:21.2%" type="button" data-map-hotspot="3" aria-label="3번 오디오 추가"></button>
+            <button class="map-hotspot" style="left:14.4%;top:28.0%" type="button" data-map-hotspot="3" aria-label="3번 오디오 추가"></button>
+            <button class="map-hotspot" style="left:30.1%;top:24.2%" type="button" data-map-hotspot="4" aria-label="4번 오디오 추가 삭제"></button>
+            <button class="map-hotspot" style="left:16.5%;top:49.8%" type="button" data-map-hotspot="5" aria-label="5번 미리보기 재생 버튼"></button>
+            <button class="map-hotspot" style="left:14.6%;top:88.6%" type="button" data-map-hotspot="6" aria-label="6번 동영상 편집 버튼"></button>
+            <button class="map-hotspot" style="left:56.0%;top:20.1%" type="button" data-map-hotspot="7" aria-label="7번 확장 버튼"></button>
+            <button class="map-hotspot" style="left:60.9%;top:63.4%" type="button" data-map-hotspot="8" aria-label="8번 UNDO"></button>
+            <button class="map-hotspot" style="left:65.4%;top:63.4%" type="button" data-map-hotspot="9" aria-label="9번 REDO"></button>
+            <button class="map-hotspot" style="left:49.3%;top:67.0%" type="button" data-map-hotspot="10" aria-label="10번 타임라인 재생 버튼"></button>
+            <button class="map-hotspot" style="left:50.0%;top:76.2%" type="button" data-map-hotspot="11" aria-label="11번 타임라인 선택"></button>
+            <button class="map-hotspot" style="left:50.1%;top:81.9%" type="button" data-map-hotspot="12" aria-label="12번 오디오 트랙 선택"></button>
+            <button class="map-hotspot" style="left:42.3%;top:88.5%" type="button" data-map-hotspot="13" aria-label="13번 동영상 필터"></button>
+            <button class="map-hotspot" style="left:49.2%;top:88.3%" type="button" data-map-hotspot="14" aria-label="14번 동영상 좌우반전"></button>
+            <button class="map-hotspot" style="left:55.8%;top:88.3%" type="button" data-map-hotspot="15" aria-label="15번 동영상 볼륨조절"></button>
+            <button class="map-hotspot" style="left:70.5%;top:85.0%" type="button" data-map-hotspot="16" aria-label="16번 동영상 볼륨조절 닫기"></button>
+            <button class="map-hotspot" style="left:83.2%;top:85.0%" type="button" data-map-hotspot="17" aria-label="17번 동영상 음소거"></button>
+            <button class="map-hotspot" style="left:95.8%;top:85.0%" type="button" data-map-hotspot="18" aria-label="18번 동영상 볼륨조절 적용"></button>
           </div>
           <div class="action-map-list" aria-label="번호별 사용자 행동명">
             <div class="action-map-item"><b>1</b><span>뒤로가기</span><strong>9.7회<em>/68회</em></strong></div>
@@ -606,8 +625,7 @@
       clearMapHighlight(layout);
       const target = layout.querySelector(`.action-map-item[data-map-item="${mapId}"]`);
       if (target) target.classList.add("is-highlighted");
-      const hotspot = layout.querySelector(`.map-hotspot[data-map-hotspot="${mapId}"]`);
-      if (hotspot) hotspot.classList.add("is-highlighted");
+      layout.querySelectorAll(`.map-hotspot[data-map-hotspot="${mapId}"]`).forEach((hotspot) => hotspot.classList.add("is-highlighted"));
     };
     document.querySelectorAll("[data-map-hotspot]").forEach((hotspot) => {
       const layout = hotspot.closest(".click-map-layout");
