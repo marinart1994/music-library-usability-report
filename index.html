@@ -132,11 +132,15 @@
     .click-map-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
     .period-chip { display: inline-flex; align-items: center; border: 1px solid #d7e1ff; border-radius: 999px; background: #f1f5ff; color: #315bdc; padding: 5px 9px; font-size: 12px; font-weight: 800; white-space: nowrap; }
     .click-map-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(220px, .72fr); gap: 14px; align-items: stretch; }
-    .screen-map { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .screen-map { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
     .screen-map img { display: block; width: 100%; height: auto; }
+    .map-hotspot { position: absolute; width: 6.4%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 0; border-radius: 999px; background: transparent; cursor: pointer; }
+    .map-hotspot:focus-visible { outline: 3px solid rgba(121,0,217,.35); outline-offset: 2px; }
     .action-map-list { display: grid; gap: 6px; align-content: start; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); padding: 12px; }
     .action-map-item { display: grid; grid-template-columns: 24px minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 32px; font-size: 12px; color: #3f4654; }
+    .action-map-item.is-highlighted { border-radius: 8px; background: #f1e6ff; box-shadow: 0 0 0 2px rgba(121,0,217,.16); }
     .action-map-item b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #f1e6ff; color: #7900d9; font-size: 11px; }
+    .action-map-item.is-highlighted b { background: #7900d9; color: #fff; }
     .action-map-item strong { color: var(--ink); font-size: 12px; white-space: nowrap; }
     .action-map-item em { color: var(--muted); font-style: normal; font-size: 11px; margin-left: 4px; }
     .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
@@ -488,6 +492,25 @@
         <div class="click-map-layout">
           <div class="screen-map" aria-label="웹스튜디오 오디오 설정 화면별 클릭 평균">
             <img src="assets/web-studio-click-map.png?v=20260805-1" alt="웹스튜디오 오디오 설정 화면">
+            <button class="map-hotspot" style="left:22.1%;top:64.4%" type="button" data-map-hotspot="1" aria-label="1번 오디오 추가"></button>
+            <button class="map-hotspot" style="left:49.6%;top:8.7%" type="button" data-map-hotspot="2" aria-label="2번 오디오 탐색 및 선택 화면 보기"></button>
+            <button class="map-hotspot" style="left:36.3%;top:30.4%" type="button" data-map-hotspot="4" aria-label="4번 카테고리 클릭"></button>
+            <button class="map-hotspot" style="left:47.7%;top:34.4%" type="button" data-map-hotspot="5" aria-label="5번 오디오 재생"></button>
+            <button class="map-hotspot" style="left:58.2%;top:30.7%" type="button" data-map-hotspot="6" aria-label="6번 오디오 선택"></button>
+            <button class="map-hotspot" style="left:58.5%;top:19.0%" type="button" data-map-hotspot="7" aria-label="7번 나가기"></button>
+            <button class="map-hotspot" style="left:79.3%;top:8.7%" type="button" data-map-hotspot="8" aria-label="8번 오디오 편집 화면 보기"></button>
+            <button class="map-hotspot" style="left:71.9%;top:18.6%" type="button" data-map-hotspot="9" aria-label="9번 뒤로가기"></button>
+            <button class="map-hotspot" style="left:87.4%;top:18.5%" type="button" data-map-hotspot="10" aria-label="10번 나가기"></button>
+            <button class="map-hotspot" style="left:68.0%;top:48.2%" type="button" data-map-hotspot="11" aria-label="11번 동영상 음량 조절"></button>
+            <button class="map-hotspot" style="left:68.1%;top:58.6%" type="button" data-map-hotspot="12" aria-label="12번 오디오 음량 조절"></button>
+            <button class="map-hotspot" style="left:87.0%;top:52.7%" type="button" data-map-hotspot="13" aria-label="13번 재생 타임라인 이동"></button>
+            <button class="map-hotspot" style="left:96.8%;top:52.7%" type="button" data-map-hotspot="14" aria-label="14번 확대"></button>
+            <button class="map-hotspot" style="left:84.2%;top:61.6%" type="button" data-map-hotspot="15" aria-label="15번 재생 타임라인 이동"></button>
+            <button class="map-hotspot" style="left:77.6%;top:52.9%" type="button" data-map-hotspot="16" aria-label="16번 동영상 재생"></button>
+            <button class="map-hotspot" style="left:79.2%;top:81.7%" type="button" data-map-hotspot="17" aria-label="17번 오디오 추가 완료"></button>
+            <button class="map-hotspot" style="left:87.8%;top:72.1%" type="button" data-map-hotspot="18" aria-label="18번 음량 30% 이하 토스트 노출"></button>
+            <button class="map-hotspot" style="left:23.0%;top:71.3%" type="button" data-map-hotspot="19" aria-label="19번 오디오 삭제"></button>
+            <button class="map-hotspot" style="left:27.2%;top:71.3%" type="button" data-map-hotspot="20" aria-label="20번 오디오 수정"></button>
           </div>
           <div class="action-map-list" aria-label="번호별 웹스튜디오 사용자 행동명">
             <div class="action-map-item"><b>1</b><span>오디오 추가</span><strong>68.4회<em>/1,710회</em></strong></div>
@@ -568,6 +591,29 @@
         button.classList.add("active");
         document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
       });
+    });
+    document.querySelectorAll(".action-map-list .action-map-item").forEach((item) => {
+      item.dataset.mapItem = item.querySelector("b").textContent.trim();
+    });
+    const clearMapHighlight = (layout) => {
+      layout.querySelectorAll(".action-map-item").forEach((item) => item.classList.remove("is-highlighted"));
+    };
+    const setMapHighlight = (layout, mapId) => {
+      clearMapHighlight(layout);
+      const target = layout.querySelector(`.action-map-item[data-map-item="${mapId}"]`);
+      if (target) target.classList.add("is-highlighted");
+    };
+    document.querySelectorAll("[data-map-hotspot]").forEach((hotspot) => {
+      const layout = hotspot.closest(".click-map-layout");
+      hotspot.addEventListener("mouseenter", () => setMapHighlight(layout, hotspot.dataset.mapHotspot));
+      hotspot.addEventListener("focus", () => setMapHighlight(layout, hotspot.dataset.mapHotspot));
+      hotspot.addEventListener("mouseleave", () => clearMapHighlight(layout));
+      hotspot.addEventListener("blur", () => clearMapHighlight(layout));
+    });
+    document.querySelectorAll(".action-map-item").forEach((item) => {
+      const layout = item.closest(".click-map-layout");
+      item.addEventListener("mouseenter", () => setMapHighlight(layout, item.dataset.mapItem));
+      item.addEventListener("mouseleave", () => clearMapHighlight(layout));
     });
   </script>
 </body>
