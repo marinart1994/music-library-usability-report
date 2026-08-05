@@ -60,6 +60,9 @@
     .top-insight.compare { border-left-color: var(--good); }
     .top-insight h2 { font-size: 16px; margin-bottom: 6px; }
     .top-insight p { font-size: 13px; line-height: 1.5; color: #3f4654; }
+    .insight-points { margin: 0; padding-left: 18px; color: #3f4654; font-size: 13px; line-height: 1.55; }
+    .insight-points li { margin: 4px 0; }
+    .insight-points small { color: var(--muted); font-size: 12px; }
     .shared-section { margin: 0 0 14px; }
     .shared-section h2 { font-size: 17px; margin-bottom: 10px; }
     .shared-compact { display: grid; grid-template-columns: 1fr; gap: 8px; }
@@ -199,7 +202,13 @@
     <section class="grid top-insights">
       <article class="panel top-insight app" data-insight-panel="app">
         <h2>앱업로더 인사이트</h2>
-        <p>순방문자수와 이벤트수가 함께 상승하고 있어, 릴리즈 이후 유저 인지가 점차 쌓이는 흐름으로 보입니다. 초기 일주일은 숏폼 업로드는 계속 있었지만 오디오 사용은 0회였고, 이후 오디오 추가가 서서히 늘기 시작했습니다. 7/30 피크는 업로드 수와 오디오 추가 수가 거의 유사해 접근성 QA 영향으로 보이나, 이후 업로드가 안정화된 뒤에도 오디오 추가가 다시 0회로 돌아가지 않았다는 점에서 실제 사용 유저가 늘고 있음을 시사합니다. 주요 클릭은 타임라인 선택, 오디오 추가, 타임라인 재생 버튼에 집중되어 있어 업로더는 이후 사용성 추이를 더 보며 진입과 편집 흐름을 점검하는 것이 좋습니다.</p>
+        <ul class="insight-points">
+          <li><strong>인지가 점진적으로 쌓이는 흐름</strong>입니다. <small>(순방문자수와 이벤트수 모두 상승)</small></li>
+          <li><strong>초기에는 업로드만 있었고 오디오 사용은 없었지만</strong>, 이후 오디오 추가가 서서히 늘었습니다. <small>(릴리즈 후 약 1주일 0회 → 이후 발생)</small></li>
+          <li><strong>7/30 피크는 QA 영향 가능성</strong>이 있어 보입니다. <small>(업로드 수와 오디오 추가 수가 거의 유사)</small></li>
+          <li><strong>그래도 사용 신호는 남았습니다.</strong> 피크 이후 업로드가 안정화돼도 오디오 추가가 다시 0회로 돌아가지는 않았습니다.</li>
+          <li><strong>주요 클릭은 편집 흐름에 집중</strong>되어 있습니다. <small>(타임라인 선택, 오디오 추가, 타임라인 재생 버튼)</small></li>
+        </ul>
       </article>
       <article class="panel top-insight web" data-insight-panel="web" hidden>
         <h2>웹스튜디오 인사이트</h2>
