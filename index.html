@@ -131,6 +131,8 @@
     .chart-tooltip strong { display: block; margin-bottom: 6px; font-size: 13px; }
     .chart-tooltip span { display: flex; justify-content: space-between; gap: 12px; margin-top: 3px; color: var(--muted); }
     .chart-tooltip b { color: var(--ink); }
+    .chart-tooltip .rate { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 11px; }
+    .chart-tooltip .rate b { font-size: 11px; }
     .axis { fill: var(--muted); font-size: 11px; }
     .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: var(--muted); font-size: 12px; }
     .key { display: inline-flex; align-items: center; gap: 6px; }
@@ -779,12 +781,23 @@
         const left = parseFloat(point.style.left);
         tooltip.style.left = `${Math.min(88, Math.max(12, left))}%`;
         const rows = [];
+        const percent = (value) => `${value.toFixed(1)}%`;
         if (point.dataset.event) rows.push(`<span>이벤트수 <b>${Number(point.dataset.event).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.video) rows.push(`<span>동영상 등록 요청 <b>${Number(point.dataset.video).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.category) rows.push(`<span>카테고리 선택 <b>${Number(point.dataset.category).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.upload) rows.push(`<span>숏폼 업로드 클릭 <b>${Number(point.dataset.upload).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.audio) rows.push(`<span>오디오 추가 클릭 <b>${Number(point.dataset.audio).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.release) rows.push(`<span>발행 완료 <b>${Number(point.dataset.release).toLocaleString("ko-KR")}건</b></span>`);
+        if (point.dataset.video && point.dataset.audio) {
+          const video = Number(point.dataset.video);
+          const audio = Number(point.dataset.audio);
+          if (video > 0) rows.push(`<span class="rate">→ 오디오 전환율 <b>+${percent((audio / video) * 100)}</b></span>`);
+          if (audio > 0 && point.dataset.release) {
+            const release = Number(point.dataset.release);
+            const dropout = Math.max(0, ((audio - release) / audio) * 100);
+            rows.push(`<span class="rate">↘ 발행 이탈률 <b>-${percent(dropout)}</b></span>`);
+          }
+        }
         tooltip.innerHTML = `<strong>${point.dataset.date}</strong>${rows.join("")}`;
         tooltip.classList.add("active");
       };
