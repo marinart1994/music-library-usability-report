@@ -532,9 +532,9 @@
         </article>
       </div>
       <article class="panel web section-gap">
-        <h2>웹스튜디오 일자별 이벤트수 추이</h2>
+        <h2>웹스튜디오 일자별 이벤트수 / 발행 완료 건수 추이</h2>
         <div class="chart">
-          <svg viewBox="0 0 980 310" role="img" aria-label="웹스튜디오 일자별 이벤트수와 순방문자수 추이">
+          <svg viewBox="0 0 980 310" role="img" aria-label="웹스튜디오 일자별 이벤트수와 발행 완료 건수 추이">
             <line x1="48" x2="940" y1="266" y2="266" stroke="#d9e0e7"/>
             <line x1="48" x2="940" y1="202.5" y2="202.5" stroke="#d9e0e7"/>
             <line x1="48" x2="940" y1="139" y2="139" stroke="#d9e0e7"/>
@@ -545,18 +545,26 @@
             <text x="40" y="143" text-anchor="end" class="axis">812</text>
             <text x="40" y="79.5" text-anchor="end" class="axis">1,217</text>
             <text x="40" y="16" text-anchor="end" class="axis">1,623</text>
+            <text x="948" y="270" class="axis">0</text>
+            <text x="948" y="206.5" class="axis">30</text>
+            <text x="948" y="143" class="axis">60</text>
+            <text x="948" y="79.5" class="axis">90</text>
+            <text x="948" y="16" class="axis">120</text>
             <path d="M48.0,151.2 L85.2,128.8 L122.3,136.5 L159.5,138.9 L196.7,137.5 L233.8,133.7 L271.0,111.7 L308.2,132.9 L345.3,122.9 L382.5,178.1 L419.7,67.1 L456.8,145.6 L494.0,12.0 L531.2,153.5 L568.3,109.9 L605.5,90.0 L642.7,151.8 L679.8,148.7 L717.0,166.7 L754.2,163.9 L791.3,145.3 L828.5,155.3 L865.7,138.8 L902.8,151.0 L940.0,152.7" fill="none" stroke="var(--web)" stroke-width="3"/>
+            <path d="M48.0,244.8 L59.3,217.3 L70.6,215.2 L81.9,200.4 L93.2,232.1 L104.5,130.5 L115.7,238.5 L127.0,230.0 L138.3,198.3 L149.6,211.0 L160.9,223.7 L172.2,223.7 L183.5,217.3 L194.8,189.8 L206.1,181.3 L217.4,149.6 L228.7,120.0 L239.9,162.3 L251.2,183.4 L262.5,22.6 L273.8,223.7 L285.1,204.6 L296.4,202.5 L307.7,208.8 L319.0,208.8 L330.3,191.9 L341.6,183.4 L352.9,166.5 L364.2,103.0 L375.4,221.6 L386.7,215.2 L398.0,242.7 L409.3,240.6 L420.6,244.8 L431.9,238.5 L443.2,225.8 L454.5,240.6 L465.8,242.7 L477.1,208.8 L488.4,238.5 L499.6,221.6 L510.9,240.6 L522.2,227.9 L533.5,213.1 L544.8,200.4 L556.1,183.4 L567.4,225.8 L578.7,227.9 L590.0,181.3 L601.3,166.5 L612.6,221.6 L623.8,227.9 L635.1,227.9 L646.4,227.9 L657.7,223.7 L669.0,227.9 L680.3,204.6 L691.6,232.1 L702.9,227.9 L714.2,232.1 L725.5,238.5 L736.8,230.0 L748.1,234.3 L759.3,196.1 L770.6,162.3 L781.9,227.9 L793.2,236.4 L804.5,236.4 L815.8,221.6 L827.1,206.7 L838.4,223.7 L849.7,179.2 L861.0,160.2 L872.3,181.3 L883.5,206.7 L894.8,208.8 L906.1,191.9 L917.4,179.2 L928.7,145.4 L940.0,217.3" fill="none" stroke="var(--app)" stroke-width="2.5"/>
             <circle cx="494" cy="12" r="5" fill="var(--web)"/><text x="504" y="24" class="axis">최고 05-31 · 1,623건</text>
+            <circle cx="262.5" cy="22.6" r="5" fill="var(--app)"/><text x="272.5" y="45" class="axis">발행 최고 05-31 · 115건</text>
             <text x="48" y="294" class="axis">05-12</text>
             <text x="494" y="294" text-anchor="middle" class="axis">05-31</text>
             <text x="754.2" y="294" text-anchor="middle" class="axis">07-09</text>
-            <text x="940" y="294" text-anchor="end" class="axis">07-27</text>
+            <text x="940" y="294" text-anchor="end" class="axis">07-30</text>
           </svg>
         </div>
         <div class="legend">
-          <span class="key"><span class="dot" style="background:var(--web)"></span>이벤트수</span>
+          <span class="key"><span class="dot" style="background:var(--web)"></span>이벤트수, 좌측 축</span>
+          <span class="key"><span class="dot" style="background:var(--app)"></span>음원 삽입 후 발행 완료 건수, 우측 축</span>
         </div>
-        <p class="note">웹스튜디오는 현재 소스에 있는 일자별 이벤트수 기준으로 표시했습니다.</p>
+        <p class="note">웹스튜디오는 2026-05-12~2026-07-30 기준입니다. 발행 완료 건수는 우측 축(0~120)으로 표시했습니다.</p>
       </article>
       <article class="panel web section-gap">
         <h2>웹스튜디오 액션명 이벤트수 순위</h2>
