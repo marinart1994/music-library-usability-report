@@ -489,27 +489,31 @@
       <section class="grid top-insights">
         <article class="panel top-insight web" data-insight-panel="web" hidden>
           <h2>웹스튜디오 인사이트</h2>
-          <p>음악을 찾고 재생하는 의도는 매우 강합니다. 다만 추가 클릭 이후 완료까지 약 23.2%가 빠져, 마지막 적용 UX가 우선 개선 지점입니다.</p>
+          <ul class="insight-points">
+            <li><strong>탐색 의도는 충분히 큽니다.</strong> <small>오디오 재생과 카테고리 클릭이 높아, 음원을 찾고 미리듣는 행동이 뚜렷합니다.</small></li>
+            <li><strong>개선 지점은 마지막 적용 단계입니다.</strong> <small>오디오 추가 이후 완료까지 일부 이탈이 있어, 적용 버튼과 성공 피드백이 핵심입니다.</small></li>
+            <li><strong>추천 연결이 전환을 키울 수 있습니다.</strong> <small>카테고리 탐색을 추천, 인기, 최근 사용 음원으로 자연스럽게 이어주는 흐름이 필요합니다.</small></li>
+          </ul>
         </article>
       </section>
       <div class="grid tab-layout">
         <article class="panel web">
           <h2><span class="pill web">2. 웹스튜디오</span> 5줄 요약</h2>
           <ol class="summary">
-            <li><strong>기간/범위:</strong> 웹스튜디오는 2026-05-12~2026-07-30 기준으로 음원 삽입 성과를 집계했습니다.</li>
-            <li><strong>삽입 성과:</strong> 전체 음원 삽입 2,333건 중 발행 완료는 2,272건이며, 발행 완료율은 97.4%입니다.</li>
+            <li><strong>기간:</strong> 2026-05-12~2026-07-30 기준으로 웹스튜디오 음원 삽입 성과를 집계했습니다.</li>
+            <li><strong>삽입 성과:</strong> 전체 2,333건 중 발행 완료는 2,272건이며, 발행 완료율은 97.4%입니다.</li>
             <li><strong>최고 일자:</strong> 일자별 발행 완료 기준 최고는 2026-05-31 115건입니다.</li>
-            <li><strong>핵심 음원 행동:</strong> 오디오 재생 9,351건, 카테고리 클릭 2,664건으로 탐색·미리듣기 의도가 가장 강합니다.</li>
-            <li><strong>전환/사용성:</strong> 오디오 추가 1,648건 대비 완료 1,266건으로, 마지막 적용 단계 개선 여지가 있습니다.</li>
+            <li><strong>탐색 행동:</strong> 오디오 재생 9,351건, 카테고리 클릭 2,664건이 핵심 사용 신호입니다.</li>
+            <li><strong>완료 전환:</strong> 오디오 추가 1,648건 중 완료는 1,266건입니다.</li>
           </ol>
         </article>
         <article class="panel web insight-box" style="border-left-color:var(--web)">
-          <h2>인사이트 / 액션 아이템</h2>
+          <h2>액션 아이템</h2>
           <ol class="action-list">
-            <li><strong>완료 전환 개선:</strong> 오디오 추가 1,648건 중 완료 1,266건이라, 마지막 적용 버튼과 성공 피드백을 우선 개선합니다.</li>
-            <li><strong>탐색 흐름 강화:</strong> 오디오 재생이 42.9%로 높으니, 재생 직후 추가/선택 액션을 더 가깝게 붙입니다.</li>
-            <li><strong>카테고리 활용:</strong> 카테고리 클릭 2,664건을 추천 음원, 인기 음원, 최근 사용 음원으로 연결합니다.</li>
-            <li><strong>음량 이슈 점검:</strong> 음량 관련 행동과 30% 이하 토스트가 많아 기본 음량, 토스트 타이밍, 미리듣기 품질을 확인합니다.</li>
+            <li><strong>완료 전환 개선:</strong> 마지막 적용 버튼과 성공 피드백을 더 명확히 해 오디오 추가 후 완료까지의 이탈을 줄입니다.</li>
+            <li><strong>재생 후 액션 강화:</strong> 미리듣기 직후 추가/선택 액션을 가까이 배치해 탐색을 제작 전환으로 연결합니다.</li>
+            <li><strong>카테고리 활용:</strong> 카테고리 선택 이후 추천 음원, 인기 음원, 최근 사용 음원으로 이어지는 탐색 루트를 만듭니다.</li>
+            <li><strong>음량 경험 점검:</strong> 기본 음량, 30% 이하 토스트 타이밍, 미리듣기 품질을 함께 확인합니다.</li>
           </ol>
         </article>
       </div>
@@ -522,15 +526,6 @@
             <div class="metric-card"><div class="kpi-label">음원 재생 사용</div><div class="kpi-value">9,351건</div><div class="kpi-note">전체 이벤트 42.9%, 핵심 탐색 신호</div></div>
             <div class="metric-card"><div class="kpi-label">추가 완료 전환</div><div class="kpi-value">76.8%</div><div class="kpi-note">오디오 추가 1,648 → 완료 1,266</div></div>
           </div>
-        </article>
-        <article class="panel web">
-          <h2>웹스튜디오 사용성</h2>
-          <div class="timeline">
-            <div class="release-row"><div class="release-label">릴리즈</div><div class="track"><span class="web-fill" style="width:100%"></span></div><div class="release-days">77일차</div></div>
-            <div class="release-row"><div class="release-label">완료 전환</div><div class="track"><span class="web-fill" style="width:76.8%"></span></div><div class="release-days">76.8%</div></div>
-            <div class="release-row"><div class="release-label">음원 재생</div><div class="track"><span class="web-fill" style="width:42.9%"></span></div><div class="release-days">42.9%</div></div>
-          </div>
-          <p class="note">웹스튜디오는 음원 탐색 의도가 충분히 크므로, 오디오 추가 이후 완료까지의 마지막 단계를 줄이는 것이 우선입니다.</p>
         </article>
       </div>
       <article class="panel web section-gap">
