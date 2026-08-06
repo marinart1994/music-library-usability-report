@@ -170,6 +170,7 @@
     .action-map-item.is-highlighted { border-radius: 8px; background: #f1e6ff; box-shadow: 0 0 0 2px rgba(121,0,217,.16); }
     .action-map-item b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #f1e6ff; color: #7900d9; font-size: 11px; }
     .action-map-item.is-highlighted b { background: #7900d9; color: #fff; }
+    .action-map-item small { display: block; color: var(--muted); font-size: 10px; margin-top: 1px; }
     .action-map-item strong { color: var(--ink); font-size: 12px; white-space: nowrap; }
     .action-map-item em { color: var(--muted); font-style: normal; font-size: 11px; margin-left: 4px; }
     .comment-note { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
@@ -303,16 +304,6 @@
         </article>
       </div>
       <article class="panel app section-gap">
-        <h2>앱업로더 진입 대비 오디오 트랙 선택 전환</h2>
-        <div class="grid metric-pairs">
-          <div class="metric-card"><div class="kpi-label">앱업로더 진입</div><div class="kpi-value">778회</div><div class="kpi-note">MO-SF14.32 이벤트, 일평균 111.1회</div></div>
-          <div class="metric-card"><div class="kpi-label">오디오 트랙 선택</div><div class="kpi-value">86회</div><div class="kpi-note">MO-SF12.16 이벤트, 일평균 12.3회</div></div>
-          <div class="metric-card"><div class="kpi-label">진입 대비 선택률</div><div class="kpi-value">11.1%</div><div class="kpi-note">86회 / 778회 기준</div></div>
-          <div class="metric-card"><div class="kpi-label">진입 UV 참고</div><div class="kpi-value">314명</div><div class="kpi-note">MO-SF14.32 UV, 일평균 44.9명</div></div>
-        </div>
-        <p class="note">2026-07-22~2026-07-28 동일 7일 기준입니다. MO-SF14.32는 프로필 &gt; 새 게시물 &gt; 숏폼에서 바로올리기 진입으로 보고, MO-SF12.16은 +오디오 트랙 선택으로 비교했습니다. 오디오 트랙 선택 UV가 없어 전환율은 이벤트 기준으로 계산했습니다.</p>
-      </article>
-      <article class="panel app section-gap">
         <h2>앱업로더 일자별 숏폼 업로드 클릭수 / 오디오 추가 클릭수 / 발행 완료 건수</h2>
         <div class="chart">
           <div class="chart-inner">
@@ -379,31 +370,31 @@
       <article class="panel app section-gap">
         <h2>화면/동선별 UV / 이벤트수</h2>
         <div class="flow-list">
-          <div class="flow-row"><div class="flow-title">동영상 편집 뷰어</div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="flow-stat"><strong>279</strong><span>UV</span></div><div class="flow-stat"><strong>527</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">동영상 컷편집</div><div class="track"><span class="app-fill" style="width:87.1%"></span></div><div class="flow-stat"><strong>190</strong><span>UV</span></div><div class="flow-stat"><strong>459</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">동영상 필터 적용</div><div class="track"><span class="app-fill" style="width:20.9%"></span></div><div class="flow-stat"><strong>17</strong><span>UV</span></div><div class="flow-stat"><strong>110</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">동영상 음량 조정</div><div class="track"><span class="app-fill" style="width:16.1%"></span></div><div class="flow-stat"><strong>52</strong><span>UV</span></div><div class="flow-stat"><strong>85</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">오디오 음원 선택</div><div class="track"><span class="app-fill" style="width:43.3%"></span></div><div class="flow-stat"><strong>54</strong><span>UV</span></div><div class="flow-stat"><strong>228</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">오디오 음원 편집</div><div class="track"><span class="app-fill" style="width:26.2%"></span></div><div class="flow-stat"><strong>42</strong><span>UV</span></div><div class="flow-stat"><strong>138</strong><span>이벤트</span></div></div>
-          <div class="flow-row"><div class="flow-title">오디오 구간 편집</div><div class="track"><span class="app-fill" style="width:19.5%"></span></div><div class="flow-stat"><strong>33</strong><span>UV</span></div><div class="flow-stat"><strong>103</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 편집 뷰어</div><div class="track"><span class="app-fill" style="width:90.9%"></span></div><div class="flow-stat"><strong>395</strong><span>UV</span></div><div class="flow-stat"><strong>790</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 컷편집</div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="flow-stat"><strong>270</strong><span>UV</span></div><div class="flow-stat"><strong>869</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 필터 적용</div><div class="track"><span class="app-fill" style="width:14.7%"></span></div><div class="flow-stat"><strong>24</strong><span>UV</span></div><div class="flow-stat"><strong>128</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">동영상 음량 조정</div><div class="track"><span class="app-fill" style="width:7.6%"></span></div><div class="flow-stat"><strong>42</strong><span>UV</span></div><div class="flow-stat"><strong>66</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 음원 선택</div><div class="track"><span class="app-fill" style="width:27.0%"></span></div><div class="flow-stat"><strong>44</strong><span>UV</span></div><div class="flow-stat"><strong>235</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 음원 편집</div><div class="track"><span class="app-fill" style="width:21.7%"></span></div><div class="flow-stat"><strong>73</strong><span>UV</span></div><div class="flow-stat"><strong>189</strong><span>이벤트</span></div></div>
+          <div class="flow-row"><div class="flow-title">오디오 구간 편집</div><div class="track"><span class="app-fill" style="width:17.3%"></span></div><div class="flow-stat"><strong>31</strong><span>UV</span></div><div class="flow-stat"><strong>150</strong><span>이벤트</span></div></div>
         </div>
-        <p class="note">캡쳐 플로우 기준으로 관련 action_code를 묶어 합산했습니다. UV는 일자·코드·OS별 합산 기준입니다.</p>
+        <p class="note">2026-07-13~2026-07-30 기준입니다. 캡쳐 플로우 기준으로 관련 action_code를 묶어 합산했으며, UV는 일자·코드별 합산 기준입니다.</p>
       </article>
       <article class="panel app section-gap">
         <h2>앱업로더 이벤트수 Top 10</h2>
         <div class="rank-bars">
-          <div class="rank-row"><div><span class="rank-label">확인</span><span class="rank-code">MO-SF12.06</span></div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="rank-value">345</div></div>
-          <div class="rank-row"><div><span class="rank-label">타임라인 선택</span><span class="rank-code">MO-SF12.15</span></div><div class="track"><span class="app-fill" style="width:86.7%"></span></div><div class="rank-value">299</div></div>
-          <div class="rank-row"><div><span class="rank-label">오디오 선택</span><span class="rank-code">MO-SF12.22</span></div><div class="track"><span class="app-fill" style="width:38.6%"></span></div><div class="rank-value">133</div></div>
-          <div class="rank-row"><div><span class="rank-label">타임라인 재생 버튼</span><span class="rank-code">MO-SF12.14</span></div><div class="track"><span class="app-fill" style="width:31.9%"></span></div><div class="rank-value">110</div></div>
-          <div class="rank-row"><div><span class="rank-label">동영상 필터</span><span class="rank-code">MO-SF12.02</span></div><div class="track"><span class="app-fill" style="width:29.0%"></span></div><div class="rank-value">100</div></div>
-          <div class="rank-row"><div><span class="rank-label">오디오 트랙 선택</span><span class="rank-code">MO-SF12.16</span></div><div class="track"><span class="app-fill" style="width:20.6%"></span></div><div class="rank-value">71</div></div>
-          <div class="rank-row"><div><span class="rank-label">뒤로가기</span><span class="rank-code">MO-SF12.05</span></div><div class="track"><span class="app-fill" style="width:14.5%"></span></div><div class="rank-value">50</div></div>
-          <div class="rank-row"><div><span class="rank-label">동영상 볼륨조절</span><span class="rank-code">MO-SF12.04</span></div><div class="track"><span class="app-fill" style="width:13.6%"></span></div><div class="rank-value">47</div></div>
-          <div class="rank-row"><div><span class="rank-label">매핑 확인 필요</span><span class="rank-code">MO-SF12.21</span></div><div class="track"><span class="app-fill" style="width:13.0%"></span></div><div class="rank-value">45</div></div>
-          <div class="rank-row"><div><span class="rank-label">매핑 확인 필요</span><span class="rank-code">MO-SF12.24</span></div><div class="track"><span class="app-fill" style="width:11.6%"></span></div><div class="rank-value">40</div></div>
+          <div class="rank-row"><div><span class="rank-label">타임라인 선택</span><span class="rank-code">MO-SF12.15</span></div><div class="track"><span class="app-fill" style="width:100%"></span></div><div class="rank-value">869</div></div>
+          <div class="rank-row"><div><span class="rank-label">확인</span><span class="rank-code">MO-SF12.06</span></div><div class="track"><span class="app-fill" style="width:90.9%"></span></div><div class="rank-value">790</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 트랙 선택</span><span class="rank-code">MO-SF12.16</span></div><div class="track"><span class="app-fill" style="width:38.6%"></span></div><div class="rank-value">335</div></div>
+          <div class="rank-row"><div><span class="rank-label">타임라인 재생 버튼</span><span class="rank-code">MO-SF12.14</span></div><div class="track"><span class="app-fill" style="width:27.2%"></span></div><div class="rank-value">236</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 선택</span><span class="rank-code">MO-SF12.22</span></div><div class="track"><span class="app-fill" style="width:27.0%"></span></div><div class="rank-value">235</div></div>
+          <div class="rank-row"><div><span class="rank-label">뒤로가기</span><span class="rank-code">MO-SF12.05</span></div><div class="track"><span class="app-fill" style="width:24.1%"></span></div><div class="rank-value">209</div></div>
+          <div class="rank-row"><div><span class="rank-label">동영상 필터</span><span class="rank-code">MO-SF12.02</span></div><div class="track"><span class="app-fill" style="width:14.7%"></span></div><div class="rank-value">128</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 선택 적용</span><span class="rank-code">MO-SF12.24</span></div><div class="track"><span class="app-fill" style="width:10.4%"></span></div><div class="rank-value">90</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 카테고리 선택</span><span class="rank-code">MO-SF12.21</span></div><div class="track"><span class="app-fill" style="width:9.6%"></span></div><div class="rank-value">83</div></div>
+          <div class="rank-row"><div><span class="rank-label">오디오 추가</span><span class="rank-code">MO-SF12.07</span></div><div class="track"><span class="app-fill" style="width:7.8%"></span></div><div class="rank-value">68</div></div>
         </div>
-        <p class="note">상위 10개 코드 합산 이벤트수 1,240건, 전체의 87.0%입니다.</p>
+        <p class="note">2026-07-13~2026-07-30 기준입니다. 상위 10개 코드 합산 이벤트수는 3,043건이며, 전체 3,467건의 87.8%입니다.</p>
       </article>
       <article class="panel app section-gap">
         <div class="click-map-head">
@@ -411,7 +402,7 @@
             <h2>참고: 앱업로더 화면별 클릭 평균</h2>
             <p class="comment-note">화면 번호와 오른쪽 목록을 매칭해서 일평균과 총합을 확인합니다.</p>
           </div>
-          <span class="period-chip">2026-07-22~2026-07-28</span>
+          <span class="period-chip">2026-07-13~2026-07-30</span>
         </div>
         <div class="click-map-layout">
           <div class="screen-map" aria-label="앱업로더 동영상 편집기 화면별 클릭 평균">
@@ -437,27 +428,59 @@
             <button class="map-hotspot" style="left:95.8%;top:85.0%" type="button" data-map-hotspot="18" aria-label="18번 동영상 볼륨조절 적용"></button>
           </div>
           <div class="action-map-list" aria-label="번호별 사용자 행동명">
-            <div class="action-map-item"><b>1</b><span>뒤로가기</span><strong>9.7회<em>/68회</em></strong></div>
-            <div class="action-map-item"><b>2</b><span>확인</span><strong>68.7회<em>/481회</em></strong></div>
-            <div class="action-map-item"><b>3</b><span>오디오 추가</span><strong>4.7회<em>/33회</em></strong></div>
-            <div class="action-map-item"><b>4</b><span>오디오 추가 삭제</span><strong>0.0회<em>/0회</em></strong></div>
-            <div class="action-map-item"><b>5</b><span>미리보기 재생 버튼</span><strong>0.4회<em>/3회</em></strong></div>
-            <div class="action-map-item"><b>6</b><span>동영상 편집 버튼</span><strong>0.1회<em>/1회</em></strong></div>
-            <div class="action-map-item"><b>7</b><span>확장 버튼</span><strong>0.3회<em>/2회</em></strong></div>
-            <div class="action-map-item"><b>8</b><span>UNDO</span><strong>0.1회<em>/1회</em></strong></div>
-            <div class="action-map-item"><b>9</b><span>REDO</span><strong>0.1회<em>/1회</em></strong></div>
-            <div class="action-map-item"><b>10</b><span>타임라인 재생 버튼</span><strong>14.4회<em>/101회</em></strong></div>
-            <div class="action-map-item"><b>11</b><span>타임라인 선택</span><strong>48.6회<em>/340회</em></strong></div>
-            <div class="action-map-item"><b>12</b><span>오디오 트랙 선택</span><strong>12.3회<em>/86회</em></strong></div>
-            <div class="action-map-item"><b>13</b><span>동영상 필터</span><strong>4.4회<em>/31회</em></strong></div>
-            <div class="action-map-item"><b>14</b><span>동영상 좌우반전</span><strong>2.6회<em>/18회</em></strong></div>
-            <div class="action-map-item"><b>15</b><span>동영상 볼륨조절</span><strong>5.1회<em>/36회</em></strong></div>
-            <div class="action-map-item"><b>16</b><span>동영상 볼륨조절 닫기</span><strong>1.9회<em>/13회</em></strong></div>
-            <div class="action-map-item"><b>17</b><span>동영상 음소거</span><strong>0.7회<em>/5회</em></strong></div>
-            <div class="action-map-item"><b>18</b><span>동영상 볼륨조절 적용</span><strong>1.1회<em>/8회</em></strong></div>
+            <div class="action-map-item"><b>1</b><span>뒤로가기<small>MO-SF12.05</small></span><strong>11.6회<em>/209회</em></strong></div>
+            <div class="action-map-item"><b>2</b><span>확인<small>MO-SF12.06</small></span><strong>43.9회<em>/790회</em></strong></div>
+            <div class="action-map-item"><b>3</b><span>오디오 추가<small>MO-SF12.07</small></span><strong>3.8회<em>/68회</em></strong></div>
+            <div class="action-map-item"><b>4</b><span>오디오 추가 삭제<small>MO-SF12.09</small></span><strong>0.2회<em>/3회</em></strong></div>
+            <div class="action-map-item"><b>5</b><span>미리보기 재생 버튼<small>MO-SF12.10</small></span><strong>0.1회<em>/1회</em></strong></div>
+            <div class="action-map-item"><b>6</b><span>동영상 편집 버튼<small>MO-SF12.11</small></span><strong>0.2회<em>/3회</em></strong></div>
+            <div class="action-map-item"><b>7</b><span>확장 버튼<small>MO-SF12.12</small></span><strong>0.9회<em>/16회</em></strong></div>
+            <div class="action-map-item"><b>8</b><span>UNDO<small>MO-SF12.13</small></span><strong>0.8회<em>/14회</em></strong></div>
+            <div class="action-map-item"><b>9</b><span>REDO<small>MO-SF12.17</small></span><strong>1.4회<em>/25회</em></strong></div>
+            <div class="action-map-item"><b>10</b><span>타임라인 재생 버튼<small>MO-SF12.14</small></span><strong>13.1회<em>/236회</em></strong></div>
+            <div class="action-map-item"><b>11</b><span>타임라인 선택<small>MO-SF12.15</small></span><strong>48.3회<em>/869회</em></strong></div>
+            <div class="action-map-item"><b>12</b><span>오디오 트랙 선택<small>MO-SF12.16</small></span><strong>18.6회<em>/335회</em></strong></div>
+            <div class="action-map-item"><b>13</b><span>동영상 필터<small>MO-SF12.02</small></span><strong>7.1회<em>/128회</em></strong></div>
+            <div class="action-map-item"><b>14</b><span>동영상 좌우반전<small>MO-SF12.03</small></span><strong>2.0회<em>/36회</em></strong></div>
+            <div class="action-map-item"><b>15</b><span>동영상 볼륨조절<small>MO-SF12.04</small></span><strong>3.7회<em>/66회</em></strong></div>
+            <div class="action-map-item"><b>16</b><span>동영상 볼륨조절 닫기<small>MO-SF12.17</small></span><strong>1.4회<em>/25회</em></strong></div>
+            <div class="action-map-item"><b>17</b><span>동영상 음소거<small>MO-SF12.18</small></span><strong>0.3회<em>/6회</em></strong></div>
+            <div class="action-map-item"><b>18</b><span>동영상 볼륨조절 적용<small>MO-SF12.19</small></span><strong>0.6회<em>/10회</em></strong></div>
           </div>
         </div>
-        <p class="note">앱업로더 최신 CSV에 있는 7일 기준입니다. 번호와 사용자 행동명은 우측 표의 key/action_code 매핑 기준으로 연결했습니다.</p>
+        <p class="note">2026-07-13~2026-07-30 기준입니다. 번호와 사용자 행동명은 화면별 action_code 매핑 기준으로 연결했습니다.</p>
+      </article>
+      <article class="panel app section-gap">
+        <div class="click-map-head">
+          <div>
+            <h2>참고: 앱업로더 오디오 편집 화면별 클릭 평균</h2>
+            <p class="comment-note">새 오디오 편집 화면 번호와 key, 사용자 행동명을 매칭해서 일평균과 총합을 확인합니다.</p>
+          </div>
+          <span class="period-chip">2026-07-13~2026-07-30</span>
+        </div>
+        <div class="click-map-layout">
+          <div class="screen-map" aria-label="앱업로더 오디오 편집 화면별 클릭 평균">
+            <img src="assets/app-audio-edit-click-map.png?v=20260806-1" alt="앱업로더 오디오 편집 화면">
+          </div>
+          <div class="action-map-list" aria-label="오디오 편집 화면 번호별 key와 사용자 행동명">
+            <div class="action-map-item"><b>1</b><span>오디오 리스트 닫기<small>MO-SF12.20</small></span><strong>1.4회<em>/26회</em></strong></div>
+            <div class="action-map-item"><b>2</b><span>오디오 카테고리 선택<small>MO-SF12.21</small></span><strong>4.6회<em>/83회</em></strong></div>
+            <div class="action-map-item"><b>3</b><span>오디오 선택<small>MO-SF12.22</small></span><strong>13.1회<em>/235회</em></strong></div>
+            <div class="action-map-item"><b>4</b><span>오디오 구간 선택<small>MO-SF12.23</small></span><strong>1.6회<em>/29회</em></strong></div>
+            <div class="action-map-item"><b>5</b><span>오디오 선택 적용<small>MO-SF12.24</small></span><strong>5.0회<em>/90회</em></strong></div>
+            <div class="action-map-item"><b>6</b><span>오디오 트랙 선택<small>MO-SF12.16</small></span><strong>18.6회<em>/335회</em></strong></div>
+            <div class="action-map-item"><b>7</b><span>오디오 편집 닫기<small>MO-SF12.25</small></span><strong>0.3회<em>/5회</em></strong></div>
+            <div class="action-map-item"><b>8</b><span>오디오 편집&gt;구간편집<small>MO-SF12.26</small></span><strong>3.5회<em>/63회</em></strong></div>
+            <div class="action-map-item"><b>9</b><span>오디오 편집&gt;볼륨조절<small>MO-SF12.27</small></span><strong>1.3회<em>/23회</em></strong></div>
+            <div class="action-map-item"><b>10</b><span>오디오 편집&gt;오디오교체<small>MO-SF12.28</small></span><strong>0.4회<em>/8회</em></strong></div>
+            <div class="action-map-item"><b>11</b><span>오디오 편집&gt;삭제<small>MO-SF12.29</small></span><strong>0.6회<em>/11회</em></strong></div>
+            <div class="action-map-item"><b>12</b><span>오디오 편집&gt;볼륨조절 닫기<small>MO-SF12.30</small></span><strong>0.5회<em>/9회</em></strong></div>
+            <div class="action-map-item"><b>13</b><span>오디오 편집&gt;볼륨조절 적용<small>MO-SF12.31</small></span><strong>0.7회<em>/12회</em></strong></div>
+            <div class="action-map-item"><b>14</b><span>오디오 편집&gt;구간편집 닫기<small>MO-SF12.32</small></span><strong>2.6회<em>/47회</em></strong></div>
+            <div class="action-map-item"><b>15</b><span>오디오 편집&gt;구간편집 적용<small>MO-SF12.33</small></span><strong>0.6회<em>/11회</em></strong></div>
+          </div>
+        </div>
+        <p class="note">2026-07-13~2026-07-30 기준입니다. 오른쪽 목록은 제공된 key와 사용자행동명 매핑표 기준으로 연결했습니다.</p>
       </article>
     </section>
 
