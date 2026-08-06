@@ -76,7 +76,7 @@
     .rank-toggle button.active { background: #fff; color: #b94b24; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
     .rank-group { display: none; gap: 6px; }
     .rank-group.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-    .music-rank-card { display: grid; grid-template-columns: 22px 1fr; gap: 7px; align-items: center; border: 1px solid #ffd9c9; border-radius: 10px; background: #fff7f2; padding: 9px; min-height: 56px; }
+    .music-rank-card { display: grid; grid-template-columns: 22px 1fr auto; gap: 7px; align-items: center; border: 1px solid #ffd9c9; border-radius: 10px; background: #fff7f2; padding: 9px; min-height: 56px; }
     .music-rank-card b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #e26a3d; color: #fff; font-size: 12px; }
     .music-rank-card.medal { background: #fff7f2; }
     .music-rank-card.gold,
@@ -86,6 +86,10 @@
     .music-rank-card.muted b { background: #e3e6eb; color: #687080; }
     .music-rank-card strong { display: block; font-size: 13px; line-height: 1.25; }
     .music-rank-card span { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .audio-play { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1px solid #ffd0be; border-radius: 999px; background: #fff; color: #c6522a; font: inherit; font-size: 12px; font-weight: 900; cursor: pointer; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
+    .audio-play.is-playing { background: #e26a3d; color: #fff; border-color: #e26a3d; }
+    .music-rank-card.muted .audio-play { border-color: #d9dee5; color: #687080; }
+    .music-rank-card.muted .audio-play.is-playing { background: #687080; color: #fff; border-color: #687080; }
     .tab-layout { grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
     .panel { background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(37, 48, 70, .06); }
     .top-insight.panel { padding: 14px 16px; }
@@ -226,27 +230,27 @@
             <button type="button" data-rank-group="bottom">하위 10위</button>
           </div>
           <div class="rank-group active" id="rank-top">
-            <div class="music-rank-card medal gold"><b>🏆</b><div><strong>토실토실 다람쥐</strong><span>ID 28 · 259회</span></div></div>
+            <div class="music-rank-card medal gold"><b>🏆</b><div><strong>토실토실 다람쥐</strong><span>ID 28 · 259회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_cute_141.wav" aria-label="토실토실 다람쥐 재생">▶</button></div>
             <div class="music-rank-card medal silver"><b>🥈</b><div><strong>두근두근 피크닉</strong><span>ID 48 · 187회</span></div></div>
-            <div class="music-rank-card medal bronze"><b>🥉</b><div><strong>퐁당퐁당 물장구</strong><span>ID 5 · 117회</span></div></div>
+            <div class="music-rank-card medal bronze"><b>🥉</b><div><strong>퐁당퐁당 물장구</strong><span>ID 5 · 117회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_cute_216.wav" aria-label="퐁당퐁당 물장구 재생">▶</button></div>
             <div class="music-rank-card"><b>4</b><div><strong>멍멍 미드나잇</strong><span>ID 47 · 87회</span></div></div>
             <div class="music-rank-card"><b>5</b><div><strong>뿜뿜 디스코</strong><span>ID 52 · 87회</span></div></div>
-            <div class="music-rank-card"><b>6</b><div><strong>걸어서 별까지</strong><span>ID 13 · 85회</span></div></div>
+            <div class="music-rank-card"><b>6</b><div><strong>걸어서 별까지</strong><span>ID 13 · 85회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_231.wav" aria-label="걸어서 별까지 재생">▶</button></div>
             <div class="music-rank-card"><b>7</b><div><strong>텅 빈 하루</strong><span>ID 82 · 77회</span></div></div>
             <div class="music-rank-card"><b>8</b><div><strong>묘한 걸</strong><span>ID 54 · 70회</span></div></div>
-            <div class="music-rank-card"><b>9</b><div><strong>새콤달콤송</strong><span>ID 11 · 64회</span></div></div>
-            <div class="music-rank-card"><b>10</b><div><strong>통통 무도회</strong><span>ID 8 · 64회</span></div></div>
+            <div class="music-rank-card"><b>9</b><div><strong>새콤달콤송</strong><span>ID 11 · 64회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_153.wav" aria-label="새콤달콤송 재생">▶</button></div>
+            <div class="music-rank-card"><b>10</b><div><strong>통통 무도회</strong><span>ID 8 · 64회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_124.wav" aria-label="통통 무도회 재생">▶</button></div>
           </div>
           <div class="rank-group" id="rank-bottom">
             <div class="music-rank-card muted"><b>59</b><div><strong>우리 함께</strong><span>ID 55 · 5회</span></div></div>
-            <div class="music-rank-card muted"><b>60</b><div><strong>고백쏭</strong><span>ID 10 · 5회</span></div></div>
-            <div class="music-rank-card muted"><b>61</b><div><strong>잘자 고양아</strong><span>ID 12 · 4회</span></div></div>
+            <div class="music-rank-card muted"><b>60</b><div><strong>고백쏭</strong><span>ID 10 · 5회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_139.wav" aria-label="고백쏭 재생">▶</button></div>
+            <div class="music-rank-card muted"><b>61</b><div><strong>잘자 고양아</strong><span>ID 12 · 4회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_155.wav" aria-label="잘자 고양아 재생">▶</button></div>
             <div class="music-rank-card muted"><b>62</b><div><strong>하늘바다 구름섬</strong><span>ID 58 · 3회</span></div></div>
             <div class="music-rank-card muted"><b>63</b><div><strong>크리스마스 이브</strong><span>ID 39 · 2회</span></div></div>
             <div class="music-rank-card muted"><b>64</b><div><strong>달콤한 선물</strong><span>ID 29 · 2회</span></div></div>
             <div class="music-rank-card muted"><b>65</b><div><strong>돌고래의 꿈</strong><span>ID 70 · 2회</span></div></div>
             <div class="music-rank-card muted"><b>66</b><div><strong>다녀왔습니다</strong><span>ID 59 · 2회</span></div></div>
-            <div class="music-rank-card muted"><b>67</b><div><strong>언제나 함께</strong><span>ID 9 · 2회</span></div></div>
+            <div class="music-rank-card muted"><b>67</b><div><strong>언제나 함께</strong><span>ID 9 · 2회</span></div><button class="audio-play" type="button" data-audio-src="assets/audio/aicompany_happy_132.wav" aria-label="언제나 함께 재생">▶</button></div>
             <div class="music-rank-card muted"><b>68</b><div><strong>한 해의 끝</strong><span>ID 35 · 1회</span></div></div>
           </div>
         </div>
@@ -691,6 +695,30 @@
         document.querySelector(`#rank-${button.dataset.rankGroup}`).classList.add("active");
       });
     });
+    const previewAudio = new Audio();
+    let activeAudioButton = null;
+    const resetAudioButton = () => {
+      if (!activeAudioButton) return;
+      activeAudioButton.classList.remove("is-playing");
+      activeAudioButton.textContent = "▶";
+      activeAudioButton = null;
+    };
+    document.querySelectorAll("[data-audio-src]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (activeAudioButton === button && !previewAudio.paused) {
+          previewAudio.pause();
+          resetAudioButton();
+          return;
+        }
+        resetAudioButton();
+        previewAudio.src = button.dataset.audioSrc;
+        previewAudio.play();
+        button.classList.add("is-playing");
+        button.textContent = "Ⅱ";
+        activeAudioButton = button;
+      });
+    });
+    previewAudio.addEventListener("ended", resetAudioButton);
     document.querySelectorAll(".action-map-list .action-map-item").forEach((item) => {
       item.dataset.mapItem = item.querySelector("b").textContent.trim();
     });
