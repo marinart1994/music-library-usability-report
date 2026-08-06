@@ -523,6 +523,7 @@
       <article class="panel web section-gap">
         <h2>웹스튜디오 일자별 이벤트수 / 발행 완료 건수 추이</h2>
         <div class="chart">
+          <div class="chart-inner">
           <svg viewBox="0 0 980 310" role="img" aria-label="웹스튜디오 일자별 이벤트수와 발행 완료 건수 추이">
             <line x1="48" x2="940" y1="266" y2="266" stroke="#d9e0e7"/>
             <line x1="48" x2="940" y1="202.5" y2="202.5" stroke="#d9e0e7"/>
@@ -534,26 +535,103 @@
             <text x="40" y="143" text-anchor="end" class="axis">812</text>
             <text x="40" y="79.5" text-anchor="end" class="axis">1,217</text>
             <text x="40" y="16" text-anchor="end" class="axis">1,623</text>
-            <text x="948" y="270" class="axis">0</text>
-            <text x="948" y="206.5" class="axis">30</text>
-            <text x="948" y="143" class="axis">60</text>
-            <text x="948" y="79.5" class="axis">90</text>
-            <text x="948" y="16" class="axis">120</text>
             <path d="M48.0,150.2 L59.3,124.7 L70.6,133.1 L81.9,135.3 L93.2,221.2 L104.5,133.8 L115.7,209.2 L127.0,129.8 L138.3,108.1 L149.6,190.3 L160.9,174.0 L172.2,189.6 L183.5,170.2 L194.8,128.0 L206.1,119.2 L217.4,169.8 L228.7,59.6 L239.9,143.6 L251.2,202.9 L262.5,12.0 L273.8,208.4 L285.1,150.5 L296.4,200.4 L307.7,194.2 L319.0,170.4 L330.3,216.7 L341.6,174.0 L352.9,106.1 L364.2,84.0 L375.4,217.5 L386.7,175.9 L398.0,229.2 L409.3,250.3 L420.6,242.5 L431.9,187.1 L443.2,197.1 L454.5,199.5 L465.8,203.9 L477.1,219.0 L488.4,239.2 L499.6,234.5 L510.9,242.1 L522.2,217.3 L533.5,203.4 L544.8,147.7 L556.1,144.2 L567.4,229.2 L578.7,228.3 L590.0,183.2 L601.3,163.8 L612.6,199.8 L623.8,198.7 L635.1,177.4 L646.4,235.5 L657.7,212.5 L669.0,210.9 L680.3,181.6 L691.6,216.7 L702.9,161.0 L714.2,218.6 L725.5,249.7 L736.8,246.9 L748.1,201.7 L759.3,142.8 L770.6,176.8 L781.9,200.3 L793.2,243.3 L804.5,242.8 L815.8,232.8 L827.1,192.1 L838.4,224.2 L849.7,153.5 L861.0,137.5 L872.3,149.9 L883.5,225.9 L894.8,220.1 L906.1,151.4 L917.4,152.2 L928.7,151.9 L940.0,181.2" fill="none" stroke="var(--web)" stroke-width="3"/>
-            <path d="M48.0,244.8 L59.3,217.3 L70.6,215.2 L81.9,200.4 L93.2,232.1 L104.5,130.5 L115.7,238.5 L127.0,230.0 L138.3,198.3 L149.6,211.0 L160.9,223.7 L172.2,223.7 L183.5,217.3 L194.8,189.8 L206.1,181.3 L217.4,149.6 L228.7,120.0 L239.9,162.3 L251.2,183.4 L262.5,22.6 L273.8,223.7 L285.1,204.6 L296.4,202.5 L307.7,208.8 L319.0,208.8 L330.3,191.9 L341.6,183.4 L352.9,166.5 L364.2,103.0 L375.4,221.6 L386.7,215.2 L398.0,242.7 L409.3,240.6 L420.6,244.8 L431.9,238.5 L443.2,225.8 L454.5,240.6 L465.8,242.7 L477.1,208.8 L488.4,238.5 L499.6,221.6 L510.9,240.6 L522.2,227.9 L533.5,213.1 L544.8,200.4 L556.1,183.4 L567.4,225.8 L578.7,227.9 L590.0,181.3 L601.3,166.5 L612.6,221.6 L623.8,227.9 L635.1,227.9 L646.4,227.9 L657.7,223.7 L669.0,227.9 L680.3,204.6 L691.6,232.1 L702.9,227.9 L714.2,232.1 L725.5,238.5 L736.8,230.0 L748.1,234.3 L759.3,196.1 L770.6,162.3 L781.9,227.9 L793.2,236.4 L804.5,236.4 L815.8,221.6 L827.1,206.7 L838.4,223.7 L849.7,179.2 L861.0,160.2 L872.3,181.3 L883.5,206.7 L894.8,208.8 L906.1,191.9 L917.4,179.2 L928.7,145.4 L940.0,217.3" fill="none" stroke="var(--app)" stroke-width="2.5"/>
+            <path d="M48.0,264.4 L59.3,262.4 L70.6,262.2 L81.9,261.1 L93.2,263.5 L104.5,256.0 L115.7,264.0 L127.0,263.3 L138.3,261.0 L149.6,261.9 L160.9,262.9 L172.2,262.9 L183.5,262.4 L194.8,260.4 L206.1,259.7 L217.4,257.4 L228.7,255.2 L239.9,258.3 L251.2,259.9 L262.5,248.0 L273.8,262.9 L285.1,261.5 L296.4,261.3 L307.7,261.8 L319.0,261.8 L330.3,260.5 L341.6,259.9 L352.9,258.6 L364.2,253.9 L375.4,262.7 L386.7,262.2 L398.0,264.3 L409.3,264.1 L420.6,264.4 L431.9,264.0 L443.2,263.0 L454.5,264.1 L465.8,264.3 L477.1,261.8 L488.4,264.0 L499.6,262.7 L510.9,264.1 L522.2,263.2 L533.5,262.1 L544.8,261.1 L556.1,259.9 L567.4,263.0 L578.7,263.2 L590.0,259.7 L601.3,258.6 L612.6,262.7 L623.8,263.2 L635.1,263.2 L646.4,263.2 L657.7,262.9 L669.0,263.2 L680.3,261.5 L691.6,263.5 L702.9,263.2 L714.2,263.5 L725.5,264.0 L736.8,263.3 L748.1,263.7 L759.3,260.8 L770.6,258.3 L781.9,263.2 L793.2,263.8 L804.5,263.8 L815.8,262.7 L827.1,261.6 L838.4,262.9 L849.7,259.6 L861.0,258.2 L872.3,259.7 L883.5,261.6 L894.8,261.8 L906.1,260.5 L917.4,259.6 L928.7,257.1 L940.0,262.4" fill="none" stroke="var(--app)" stroke-width="2.5"/>
             <circle cx="262.5" cy="12" r="5" fill="var(--web)"/><text x="272.5" y="24" class="axis">최고 05-31 · 1,623건</text>
-            <circle cx="262.5" cy="22.6" r="5" fill="var(--app)"/><text x="272.5" y="45" class="axis">발행 최고 05-31 · 115건</text>
+            <circle cx="262.5" cy="248" r="5" fill="var(--app)"/><text x="272.5" y="242" class="axis">발행 최고 05-31 · 115건</text>
             <text x="48" y="294" class="axis">05-12</text>
             <text x="262.5" y="294" text-anchor="middle" class="axis">05-31</text>
             <text x="754.2" y="294" text-anchor="middle" class="axis">07-09</text>
             <text x="940" y="294" text-anchor="end" class="axis">07-30</text>
           </svg>
+          <button class="chart-point" style="left:4.90%" type="button" data-date="2026-05-12" data-event="740" data-release="10" aria-label="2026-05-12: 이벤트 740회 발행 10건"></button>
+          <button class="chart-point" style="left:6.05%" type="button" data-date="2026-05-13" data-event="903" data-release="23" aria-label="2026-05-13: 이벤트 903회 발행 23건"></button>
+          <button class="chart-point" style="left:7.20%" type="button" data-date="2026-05-14" data-event="849" data-release="24" aria-label="2026-05-14: 이벤트 849회 발행 24건"></button>
+          <button class="chart-point" style="left:8.35%" type="button" data-date="2026-05-15" data-event="835" data-release="31" aria-label="2026-05-15: 이벤트 835회 발행 31건"></button>
+          <button class="chart-point" style="left:9.51%" type="button" data-date="2026-05-16" data-event="286" data-release="16" aria-label="2026-05-16: 이벤트 286회 발행 16건"></button>
+          <button class="chart-point" style="left:10.66%" type="button" data-date="2026-05-17" data-event="845" data-release="64" aria-label="2026-05-17: 이벤트 845회 발행 64건"></button>
+          <button class="chart-point" style="left:11.81%" type="button" data-date="2026-05-18" data-event="363" data-release="13" aria-label="2026-05-18: 이벤트 363회 발행 13건"></button>
+          <button class="chart-point" style="left:12.96%" type="button" data-date="2026-05-19" data-event="870" data-release="17" aria-label="2026-05-19: 이벤트 870회 발행 17건"></button>
+          <button class="chart-point" style="left:14.12%" type="button" data-date="2026-05-20" data-event="1009" data-release="32" aria-label="2026-05-20: 이벤트 1009회 발행 32건"></button>
+          <button class="chart-point" style="left:15.27%" type="button" data-date="2026-05-21" data-event="484" data-release="26" aria-label="2026-05-21: 이벤트 484회 발행 26건"></button>
+          <button class="chart-point" style="left:16.42%" type="button" data-date="2026-05-22" data-event="588" data-release="20" aria-label="2026-05-22: 이벤트 588회 발행 20건"></button>
+          <button class="chart-point" style="left:17.57%" type="button" data-date="2026-05-23" data-event="488" data-release="20" aria-label="2026-05-23: 이벤트 488회 발행 20건"></button>
+          <button class="chart-point" style="left:18.72%" type="button" data-date="2026-05-24" data-event="612" data-release="23" aria-label="2026-05-24: 이벤트 612회 발행 23건"></button>
+          <button class="chart-point" style="left:19.88%" type="button" data-date="2026-05-25" data-event="882" data-release="36" aria-label="2026-05-25: 이벤트 882회 발행 36건"></button>
+          <button class="chart-point" style="left:21.03%" type="button" data-date="2026-05-26" data-event="938" data-release="40" aria-label="2026-05-26: 이벤트 938회 발행 40건"></button>
+          <button class="chart-point" style="left:22.18%" type="button" data-date="2026-05-27" data-event="615" data-release="55" aria-label="2026-05-27: 이벤트 615회 발행 55건"></button>
+          <button class="chart-point" style="left:23.33%" type="button" data-date="2026-05-28" data-event="1319" data-release="69" aria-label="2026-05-28: 이벤트 1319회 발행 69건"></button>
+          <button class="chart-point" style="left:24.48%" type="button" data-date="2026-05-29" data-event="782" data-release="49" aria-label="2026-05-29: 이벤트 782회 발행 49건"></button>
+          <button class="chart-point" style="left:25.64%" type="button" data-date="2026-05-30" data-event="403" data-release="39" aria-label="2026-05-30: 이벤트 403회 발행 39건"></button>
+          <button class="chart-point" style="left:26.79%" type="button" data-date="2026-05-31" data-event="1623" data-release="115" aria-label="2026-05-31: 이벤트 1623회 발행 115건"></button>
+          <button class="chart-point" style="left:27.94%" type="button" data-date="2026-06-01" data-event="368" data-release="20" aria-label="2026-06-01: 이벤트 368회 발행 20건"></button>
+          <button class="chart-point" style="left:29.09%" type="button" data-date="2026-06-02" data-event="738" data-release="29" aria-label="2026-06-02: 이벤트 738회 발행 29건"></button>
+          <button class="chart-point" style="left:30.25%" type="button" data-date="2026-06-03" data-event="419" data-release="30" aria-label="2026-06-03: 이벤트 419회 발행 30건"></button>
+          <button class="chart-point" style="left:31.40%" type="button" data-date="2026-06-04" data-event="459" data-release="27" aria-label="2026-06-04: 이벤트 459회 발행 27건"></button>
+          <button class="chart-point" style="left:32.55%" type="button" data-date="2026-06-05" data-event="611" data-release="27" aria-label="2026-06-05: 이벤트 611회 발행 27건"></button>
+          <button class="chart-point" style="left:33.70%" type="button" data-date="2026-06-06" data-event="315" data-release="35" aria-label="2026-06-06: 이벤트 315회 발행 35건"></button>
+          <button class="chart-point" style="left:34.85%" type="button" data-date="2026-06-07" data-event="588" data-release="39" aria-label="2026-06-07: 이벤트 588회 발행 39건"></button>
+          <button class="chart-point" style="left:36.01%" type="button" data-date="2026-06-08" data-event="1022" data-release="47" aria-label="2026-06-08: 이벤트 1022회 발행 47건"></button>
+          <button class="chart-point" style="left:37.16%" type="button" data-date="2026-06-09" data-event="1163" data-release="77" aria-label="2026-06-09: 이벤트 1163회 발행 77건"></button>
+          <button class="chart-point" style="left:38.31%" type="button" data-date="2026-06-10" data-event="310" data-release="21" aria-label="2026-06-10: 이벤트 310회 발행 21건"></button>
+          <button class="chart-point" style="left:39.46%" type="button" data-date="2026-06-11" data-event="576" data-release="24" aria-label="2026-06-11: 이벤트 576회 발행 24건"></button>
+          <button class="chart-point" style="left:40.61%" type="button" data-date="2026-06-12" data-event="235" data-release="11" aria-label="2026-06-12: 이벤트 235회 발행 11건"></button>
+          <button class="chart-point" style="left:41.77%" type="button" data-date="2026-06-13" data-event="100" data-release="12" aria-label="2026-06-13: 이벤트 100회 발행 12건"></button>
+          <button class="chart-point" style="left:42.92%" type="button" data-date="2026-06-14" data-event="150" data-release="10" aria-label="2026-06-14: 이벤트 150회 발행 10건"></button>
+          <button class="chart-point" style="left:44.07%" type="button" data-date="2026-06-15" data-event="504" data-release="13" aria-label="2026-06-15: 이벤트 504회 발행 13건"></button>
+          <button class="chart-point" style="left:45.22%" type="button" data-date="2026-06-16" data-event="440" data-release="19" aria-label="2026-06-16: 이벤트 440회 발행 19건"></button>
+          <button class="chart-point" style="left:46.38%" type="button" data-date="2026-06-17" data-event="425" data-release="12" aria-label="2026-06-17: 이벤트 425회 발행 12건"></button>
+          <button class="chart-point" style="left:47.53%" type="button" data-date="2026-06-18" data-event="397" data-release="11" aria-label="2026-06-18: 이벤트 397회 발행 11건"></button>
+          <button class="chart-point" style="left:48.68%" type="button" data-date="2026-06-19" data-event="300" data-release="27" aria-label="2026-06-19: 이벤트 300회 발행 27건"></button>
+          <button class="chart-point" style="left:49.83%" type="button" data-date="2026-06-20" data-event="171" data-release="13" aria-label="2026-06-20: 이벤트 171회 발행 13건"></button>
+          <button class="chart-point" style="left:50.98%" type="button" data-date="2026-06-21" data-event="201" data-release="21" aria-label="2026-06-21: 이벤트 201회 발행 21건"></button>
+          <button class="chart-point" style="left:52.14%" type="button" data-date="2026-06-22" data-event="153" data-release="12" aria-label="2026-06-22: 이벤트 153회 발행 12건"></button>
+          <button class="chart-point" style="left:53.29%" type="button" data-date="2026-06-23" data-event="311" data-release="18" aria-label="2026-06-23: 이벤트 311회 발행 18건"></button>
+          <button class="chart-point" style="left:54.44%" type="button" data-date="2026-06-24" data-event="400" data-release="25" aria-label="2026-06-24: 이벤트 400회 발행 25건"></button>
+          <button class="chart-point" style="left:55.59%" type="button" data-date="2026-06-25" data-event="756" data-release="31" aria-label="2026-06-25: 이벤트 756회 발행 31건"></button>
+          <button class="chart-point" style="left:56.75%" type="button" data-date="2026-06-26" data-event="778" data-release="39" aria-label="2026-06-26: 이벤트 778회 발행 39건"></button>
+          <button class="chart-point" style="left:57.90%" type="button" data-date="2026-06-27" data-event="235" data-release="19" aria-label="2026-06-27: 이벤트 235회 발행 19건"></button>
+          <button class="chart-point" style="left:59.05%" type="button" data-date="2026-06-28" data-event="241" data-release="18" aria-label="2026-06-28: 이벤트 241회 발행 18건"></button>
+          <button class="chart-point" style="left:60.20%" type="button" data-date="2026-06-29" data-event="529" data-release="40" aria-label="2026-06-29: 이벤트 529회 발행 40건"></button>
+          <button class="chart-point" style="left:61.35%" type="button" data-date="2026-06-30" data-event="653" data-release="47" aria-label="2026-06-30: 이벤트 653회 발행 47건"></button>
+          <button class="chart-point" style="left:62.51%" type="button" data-date="2026-07-01" data-event="423" data-release="21" aria-label="2026-07-01: 이벤트 423회 발행 21건"></button>
+          <button class="chart-point" style="left:63.66%" type="button" data-date="2026-07-02" data-event="430" data-release="18" aria-label="2026-07-02: 이벤트 430회 발행 18건"></button>
+          <button class="chart-point" style="left:64.81%" type="button" data-date="2026-07-03" data-event="566" data-release="18" aria-label="2026-07-03: 이벤트 566회 발행 18건"></button>
+          <button class="chart-point" style="left:65.96%" type="button" data-date="2026-07-04" data-event="195" data-release="18" aria-label="2026-07-04: 이벤트 195회 발행 18건"></button>
+          <button class="chart-point" style="left:67.11%" type="button" data-date="2026-07-05" data-event="342" data-release="20" aria-label="2026-07-05: 이벤트 342회 발행 20건"></button>
+          <button class="chart-point" style="left:68.27%" type="button" data-date="2026-07-06" data-event="352" data-release="18" aria-label="2026-07-06: 이벤트 352회 발행 18건"></button>
+          <button class="chart-point" style="left:69.42%" type="button" data-date="2026-07-07" data-event="539" data-release="29" aria-label="2026-07-07: 이벤트 539회 발행 29건"></button>
+          <button class="chart-point" style="left:70.57%" type="button" data-date="2026-07-08" data-event="315" data-release="16" aria-label="2026-07-08: 이벤트 315회 발행 16건"></button>
+          <button class="chart-point" style="left:71.72%" type="button" data-date="2026-07-09" data-event="671" data-release="18" aria-label="2026-07-09: 이벤트 671회 발행 18건"></button>
+          <button class="chart-point" style="left:72.88%" type="button" data-date="2026-07-10" data-event="303" data-release="16" aria-label="2026-07-10: 이벤트 303회 발행 16건"></button>
+          <button class="chart-point" style="left:74.03%" type="button" data-date="2026-07-11" data-event="104" data-release="13" aria-label="2026-07-11: 이벤트 104회 발행 13건"></button>
+          <button class="chart-point" style="left:75.18%" type="button" data-date="2026-07-12" data-event="122" data-release="17" aria-label="2026-07-12: 이벤트 122회 발행 17건"></button>
+          <button class="chart-point" style="left:76.33%" type="button" data-date="2026-07-13" data-event="411" data-release="15" aria-label="2026-07-13: 이벤트 411회 발행 15건"></button>
+          <button class="chart-point" style="left:77.48%" type="button" data-date="2026-07-14" data-event="787" data-release="33" aria-label="2026-07-14: 이벤트 787회 발행 33건"></button>
+          <button class="chart-point" style="left:78.64%" type="button" data-date="2026-07-15" data-event="570" data-release="49" aria-label="2026-07-15: 이벤트 570회 발행 49건"></button>
+          <button class="chart-point" style="left:79.79%" type="button" data-date="2026-07-16" data-event="420" data-release="18" aria-label="2026-07-16: 이벤트 420회 발행 18건"></button>
+          <button class="chart-point" style="left:80.94%" type="button" data-date="2026-07-17" data-event="145" data-release="14" aria-label="2026-07-17: 이벤트 145회 발행 14건"></button>
+          <button class="chart-point" style="left:82.09%" type="button" data-date="2026-07-18" data-event="148" data-release="14" aria-label="2026-07-18: 이벤트 148회 발행 14건"></button>
+          <button class="chart-point" style="left:83.24%" type="button" data-date="2026-07-19" data-event="212" data-release="21" aria-label="2026-07-19: 이벤트 212회 발행 21건"></button>
+          <button class="chart-point" style="left:84.40%" type="button" data-date="2026-07-20" data-event="472" data-release="28" aria-label="2026-07-20: 이벤트 472회 발행 28건"></button>
+          <button class="chart-point" style="left:85.55%" type="button" data-date="2026-07-21" data-event="267" data-release="20" aria-label="2026-07-21: 이벤트 267회 발행 20건"></button>
+          <button class="chart-point" style="left:86.70%" type="button" data-date="2026-07-22" data-event="719" data-release="41" aria-label="2026-07-22: 이벤트 719회 발행 41건"></button>
+          <button class="chart-point" style="left:87.85%" type="button" data-date="2026-07-23" data-event="821" data-release="50" aria-label="2026-07-23: 이벤트 821회 발행 50건"></button>
+          <button class="chart-point" style="left:89.01%" type="button" data-date="2026-07-24" data-event="742" data-release="40" aria-label="2026-07-24: 이벤트 742회 발행 40건"></button>
+          <button class="chart-point" style="left:90.16%" type="button" data-date="2026-07-25" data-event="256" data-release="28" aria-label="2026-07-25: 이벤트 256회 발행 28건"></button>
+          <button class="chart-point" style="left:91.31%" type="button" data-date="2026-07-26" data-event="293" data-release="27" aria-label="2026-07-26: 이벤트 293회 발행 27건"></button>
+          <button class="chart-point" style="left:92.46%" type="button" data-date="2026-07-27" data-event="732" data-release="35" aria-label="2026-07-27: 이벤트 732회 발행 35건"></button>
+          <button class="chart-point" style="left:93.61%" type="button" data-date="2026-07-28" data-event="727" data-release="41" aria-label="2026-07-28: 이벤트 727회 발행 41건"></button>
+          <button class="chart-point" style="left:94.77%" type="button" data-date="2026-07-29" data-event="729" data-release="57" aria-label="2026-07-29: 이벤트 729회 발행 57건"></button>
+          <button class="chart-point" style="left:95.92%" type="button" data-date="2026-07-30" data-event="542" data-release="23" aria-label="2026-07-30: 이벤트 542회 발행 23건"></button>
+          <div class="chart-tooltip" aria-hidden="true"></div>
+          </div>
         </div>
         <div class="legend">
-          <span class="key"><span class="dot" style="background:var(--web)"></span>이벤트수, 좌측 축</span>
-          <span class="key"><span class="dot" style="background:var(--app)"></span>음원 삽입 후 발행 완료 건수, 우측 축</span>
+          <span class="key"><span class="dot" style="background:var(--web)"></span>이벤트수</span>
+          <span class="key"><span class="dot" style="background:var(--app)"></span>음원 삽입 후 발행 완료 건수</span>
         </div>
-        <p class="note">웹스튜디오는 2026-05-12~2026-07-30 기준입니다. 발행 완료 건수는 우측 축(0~120)으로 표시했습니다.</p>
+        <p class="note">웹스튜디오는 2026-05-12~2026-07-30 기준입니다. 두 지표 모두 같은 좌측 축(0~1,623)으로 표시해 실제 수치 비율을 유지했습니다.</p>
       </article>
       <article class="panel web section-gap">
         <h2>웹스튜디오 액션명 이벤트수 순위</h2>
@@ -750,6 +828,7 @@
         const left = parseFloat(point.style.left);
         tooltip.style.left = `${Math.min(88, Math.max(12, left))}%`;
         const rows = [];
+        if (point.dataset.event) rows.push(`<span>이벤트수 <b>${Number(point.dataset.event).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.upload) rows.push(`<span>숏폼 업로드 클릭 <b>${Number(point.dataset.upload).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.audio) rows.push(`<span>오디오 추가 클릭 <b>${Number(point.dataset.audio).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.release) rows.push(`<span>발행 완료 <b>${Number(point.dataset.release).toLocaleString("ko-KR")}건</b></span>`);
