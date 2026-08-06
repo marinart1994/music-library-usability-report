@@ -75,7 +75,7 @@
     .rank-toggle button { border: 0; background: transparent; border-radius: 999px; padding: 6px 10px; color: var(--muted); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
     .rank-toggle button.active { background: #fff; color: #b94b24; box-shadow: 0 1px 5px rgba(37,48,70,.08); }
     .rank-group { display: none; gap: 6px; }
-    .rank-group.active { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .rank-group.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     .music-rank-card { display: grid; grid-template-columns: 22px 1fr; gap: 7px; align-items: center; border: 1px solid #ffd9c9; border-radius: 10px; background: #fff7f2; padding: 9px; min-height: 56px; }
     .music-rank-card b { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 999px; background: #e26a3d; color: #fff; font-size: 12px; }
     .music-rank-card strong { display: block; font-size: 13px; line-height: 1.25; }
@@ -229,8 +229,8 @@
         </div>
         <div class="rank-widget">
           <div class="rank-toggle" aria-label="음원 순위 구간 선택">
-            <button class="active" type="button" data-rank-group="top">1-5위</button>
-            <button type="button" data-rank-group="next">6-10위</button>
+            <button class="active" type="button" data-rank-group="top">상위 10위</button>
+            <button type="button" data-rank-group="bottom">하위 10위</button>
           </div>
           <div class="rank-group active" id="rank-top">
             <div class="music-rank-card"><b>1</b><div><strong>토실토실 다람쥐</strong><span>ID 28 · 259회</span></div></div>
@@ -238,13 +238,23 @@
             <div class="music-rank-card"><b>3</b><div><strong>퐁당퐁당 물장구</strong><span>ID 5 · 117회</span></div></div>
             <div class="music-rank-card"><b>4</b><div><strong>멍멍 미드나잇</strong><span>ID 47 · 87회</span></div></div>
             <div class="music-rank-card"><b>5</b><div><strong>뿜뿜 디스코</strong><span>ID 52 · 87회</span></div></div>
-          </div>
-          <div class="rank-group" id="rank-next">
             <div class="music-rank-card"><b>6</b><div><strong>걸어서 별까지</strong><span>ID 13 · 85회</span></div></div>
             <div class="music-rank-card"><b>7</b><div><strong>텅 빈 하루</strong><span>ID 82 · 77회</span></div></div>
             <div class="music-rank-card"><b>8</b><div><strong>묘한 걸</strong><span>ID 54 · 70회</span></div></div>
             <div class="music-rank-card"><b>9</b><div><strong>새콤달콤송</strong><span>ID 11 · 64회</span></div></div>
             <div class="music-rank-card"><b>10</b><div><strong>통통 무도회</strong><span>ID 8 · 64회</span></div></div>
+          </div>
+          <div class="rank-group" id="rank-bottom">
+            <div class="music-rank-card"><b>59</b><div><strong>우리 함께</strong><span>ID 55 · 5회</span></div></div>
+            <div class="music-rank-card"><b>60</b><div><strong>고백쏭</strong><span>ID 10 · 5회</span></div></div>
+            <div class="music-rank-card"><b>61</b><div><strong>잘자 고양아</strong><span>ID 12 · 4회</span></div></div>
+            <div class="music-rank-card"><b>62</b><div><strong>하늘바다 구름섬</strong><span>ID 58 · 3회</span></div></div>
+            <div class="music-rank-card"><b>63</b><div><strong>크리스마스 이브</strong><span>ID 39 · 2회</span></div></div>
+            <div class="music-rank-card"><b>64</b><div><strong>달콤한 선물</strong><span>ID 29 · 2회</span></div></div>
+            <div class="music-rank-card"><b>65</b><div><strong>돌고래의 꿈</strong><span>ID 70 · 2회</span></div></div>
+            <div class="music-rank-card"><b>66</b><div><strong>다녀왔습니다</strong><span>ID 59 · 2회</span></div></div>
+            <div class="music-rank-card"><b>67</b><div><strong>언제나 함께</strong><span>ID 9 · 2회</span></div></div>
+            <div class="music-rank-card"><b>68</b><div><strong>한 해의 끝</strong><span>ID 35 · 1회</span></div></div>
           </div>
         </div>
       </div>
