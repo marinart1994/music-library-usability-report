@@ -131,7 +131,14 @@
     .chart-tooltip strong { display: block; margin-bottom: 6px; font-size: 13px; }
     .chart-tooltip span { display: flex; justify-content: space-between; gap: 12px; margin-top: 3px; color: var(--muted); }
     .chart-tooltip b { color: var(--ink); }
-    .chart-tooltip small { margin-left: 4px; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .chart-tooltip.flow { min-width: 250px; }
+    .flow-row { display: grid; grid-template-columns: minmax(108px, 1fr) 62px 70px; align-items: center; gap: 8px; margin-top: 4px; }
+    .chart-tooltip .flow-row span { display: block; margin-top: 0; }
+    .flow-row .label { color: var(--muted); }
+    .flow-row .value { color: var(--ink); font-size: 18px; font-weight: 900; text-align: right; }
+    .flow-rate { position: relative; align-self: stretch; color: var(--ink); font-size: 11px; white-space: nowrap; padding-left: 20px; display: flex; align-items: center; }
+    .flow-rate::before { content: "↳"; position: absolute; left: 0; top: -7px; color: #c9cbd1; font-size: 28px; line-height: 1; transform: rotate(-8deg); }
+    .flow-row:last-child .flow-rate { visibility: hidden; }
     .axis { fill: var(--muted); font-size: 11px; }
     .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: var(--muted); font-size: 12px; }
     .key { display: inline-flex; align-items: center; gap: 6px; }
@@ -784,13 +791,25 @@
         const video = Number(point.dataset.video || 0);
         const audio = Number(point.dataset.audio || 0);
         const release = Number(point.dataset.release || 0);
-        const audioRate = video > 0 ? `<small>+${percent((audio / video) * 100)}</small>` : "";
-        const releaseDropout = audio > 0 ? `<small>-${percent(Math.max(0, ((audio - release) / audio) * 100))}</small>` : "";
+        if (point.dataset.video && point.dataset.audio && point.dataset.release) {
+          const clickRate = video > 0 ? percent((audio / video) * 100) : "0.0%";
+          const completeRate = audio > 0 ? percent((release / audio) * 100) : "0.0%";
+          tooltip.classList.add("flow");
+          tooltip.innerHTML = `
+            <strong>${point.dataset.date}</strong>
+            <div class="flow-row"><span class="label">동영상 등록 요청</span><span class="value">${video.toLocaleString("ko-KR")}회</span><span class="flow-rate">${clickRate} 클릭</span></div>
+            <div class="flow-row"><span class="label">오디오 추가 클릭</span><span class="value">${audio.toLocaleString("ko-KR")}회</span><span class="flow-rate">${completeRate} 완료</span></div>
+            <div class="flow-row"><span class="label">발행 완료</span><span class="value">${release.toLocaleString("ko-KR")}건</span><span class="flow-rate"></span></div>
+          `;
+          tooltip.classList.add("active");
+          return;
+        }
+        tooltip.classList.remove("flow");
         if (point.dataset.event) rows.push(`<span>이벤트수 <b>${Number(point.dataset.event).toLocaleString("ko-KR")}회</b></span>`);
-        if (point.dataset.video) rows.push(`<span>동영상 등록 요청 <b>${video.toLocaleString("ko-KR")}회 ${audioRate}</b></span>`);
+        if (point.dataset.video) rows.push(`<span>동영상 등록 요청 <b>${video.toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.category) rows.push(`<span>카테고리 선택 <b>${Number(point.dataset.category).toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.upload) rows.push(`<span>숏폼 업로드 클릭 <b>${Number(point.dataset.upload).toLocaleString("ko-KR")}회</b></span>`);
-        if (point.dataset.audio) rows.push(`<span>오디오 추가 클릭 <b>${audio.toLocaleString("ko-KR")}회 ${releaseDropout}</b></span>`);
+        if (point.dataset.audio) rows.push(`<span>오디오 추가 클릭 <b>${audio.toLocaleString("ko-KR")}회</b></span>`);
         if (point.dataset.release) rows.push(`<span>발행 완료 <b>${Number(point.dataset.release).toLocaleString("ko-KR")}건</b></span>`);
         tooltip.innerHTML = `<strong>${point.dataset.date}</strong>${rows.join("")}`;
         tooltip.classList.add("active");
