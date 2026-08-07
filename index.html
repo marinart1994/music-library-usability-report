@@ -136,9 +136,7 @@
     .chart-tooltip .flow-row span { display: block; margin-top: 0; }
     .flow-row .label { color: var(--muted); }
     .flow-row .value { color: var(--ink); font-size: 18px; font-weight: 900; text-align: right; }
-    .flow-rate { position: relative; align-self: stretch; color: var(--ink); font-size: 11px; white-space: nowrap; padding-left: 20px; display: flex; align-items: center; }
-    .flow-rate::before { content: "↳"; position: absolute; left: 0; top: -7px; color: #c9cbd1; font-size: 28px; line-height: 1; transform: rotate(-8deg); }
-    .flow-row:last-child .flow-rate { visibility: hidden; }
+    .flow-rate { color: var(--ink); font-size: 11px; white-space: nowrap; }
     .axis { fill: var(--muted); font-size: 11px; }
     .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: var(--muted); font-size: 12px; }
     .key { display: inline-flex; align-items: center; gap: 6px; }
@@ -797,9 +795,9 @@
           tooltip.classList.add("flow");
           tooltip.innerHTML = `
             <strong>${point.dataset.date}</strong>
-            <div class="flow-row"><span class="label">동영상 등록 요청</span><span class="value">${video.toLocaleString("ko-KR")}회</span><span class="flow-rate">${clickRate} 클릭</span></div>
-            <div class="flow-row"><span class="label">오디오 추가 클릭</span><span class="value">${audio.toLocaleString("ko-KR")}회</span><span class="flow-rate">${completeRate} 완료</span></div>
-            <div class="flow-row"><span class="label">발행 완료</span><span class="value">${release.toLocaleString("ko-KR")}건</span><span class="flow-rate"></span></div>
+            <div class="flow-row"><span class="label">동영상 등록 요청</span><span class="value">${video.toLocaleString("ko-KR")}회</span><span class="flow-rate"></span></div>
+            <div class="flow-row"><span class="label">오디오 추가 클릭</span><span class="value">${audio.toLocaleString("ko-KR")}회</span><span class="flow-rate">${clickRate} 클릭</span></div>
+            <div class="flow-row"><span class="label">발행 완료</span><span class="value">${release.toLocaleString("ko-KR")}건</span><span class="flow-rate">${completeRate} 완료</span></div>
           `;
           tooltip.classList.add("active");
           return;
