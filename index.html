@@ -131,12 +131,12 @@
     .chart-tooltip strong { display: block; margin-bottom: 6px; font-size: 13px; }
     .chart-tooltip span { display: flex; justify-content: space-between; gap: 12px; margin-top: 3px; color: var(--muted); }
     .chart-tooltip b { color: var(--ink); }
-    .chart-tooltip.flow { min-width: 250px; }
-    .flow-row { display: grid; grid-template-columns: minmax(108px, 1fr) 62px 70px; align-items: center; gap: 8px; margin-top: 4px; }
+    .chart-tooltip.flow { min-width: 220px; }
+    .chart-tooltip.flow .flow-row { display: grid; grid-template-columns: 104px 58px 58px; align-items: center; gap: 6px; margin-top: 4px; }
     .chart-tooltip .flow-row span { display: block; margin-top: 0; }
-    .flow-row .label { color: var(--muted); }
-    .flow-row .value { color: var(--ink); font-size: 18px; font-weight: 900; text-align: right; }
-    .flow-rate { color: var(--ink); font-size: 11px; white-space: nowrap; }
+    .chart-tooltip.flow .flow-row .label { color: var(--muted); }
+    .chart-tooltip.flow .flow-row .value { color: var(--ink); font-size: 16px; font-weight: 900; text-align: right; }
+    .chart-tooltip.flow .flow-rate { color: var(--ink); font-size: 10px; white-space: nowrap; }
     .axis { fill: var(--muted); font-size: 11px; }
     .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: var(--muted); font-size: 12px; }
     .key { display: inline-flex; align-items: center; gap: 6px; }
